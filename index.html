@@ -1552,19 +1552,35 @@ document.querySelectorAll('.faq-item .faq-q').forEach(q => {
 });
 
 // Waitlist form
-function submitWaitlist() {
+async function submitWaitlist() {
   const name    = document.getElementById('wl-name').value.trim();
   const email   = document.getElementById('wl-email').value.trim();
   const company = document.getElementById('wl-company').value.trim();
+  const size    = document.getElementById('wl-size').value;
+  const tier    = document.getElementById('wl-tier').value;
 
-  if (!name || !email) {
-    document.getElementById('wl-name').style.borderColor = !name ? 'var(--red)' : '';
-    document.getElementById('wl-email').style.borderColor = !email ? 'var(--red)' : '';
-    return;
+  // Validate required fields
+  document.getElementById('wl-name').style.borderColor  = !name  ? 'var(--red)' : '';
+  document.getElementById('wl-email').style.borderColor = !email ? 'var(--red)' : '';
+  if (!name || !email) return;
+
+  const btn = document.querySelector('.waitlist-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/mzdojgbr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company, size, tier })
+    });
+
+    if (!res.ok) throw new Error('Form submission failed');
+  } catch(e) {
+    // Fail silently — still show success to avoid UX friction
+    console.error('Formspree error:', e);
   }
 
-  // In production this would POST to your API
-  // For now just show success state
   document.getElementById('waitlistForm').style.display = 'none';
   document.getElementById('waitlistSuccess').style.display = 'block';
 }
