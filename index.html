@@ -696,7 +696,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .eu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   border: 0.5px solid var(--border);
   border-radius: var(--radius-lg);
@@ -842,16 +842,16 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 .price-card.featured .price-features li.included::before { color: var(--bg); }
 
 .ai-highlight {
-  background: rgba(55,138,221,.1);
-  border: 0.5px solid rgba(55,138,221,.25);
+  background: rgba(232,230,223,.06);
+  border: 0.5px solid rgba(232,230,223,.18);
   border-radius: 4px;
   padding: .3rem .5rem;
   font-size: .72rem;
-  color: var(--blue);
+  color: var(--text);
   margin-bottom: .75rem;
 }
 .price-card.featured .ai-highlight {
-  background: rgba(28,28,26,.15);
+  background: rgba(28,28,26,.12);
   border-color: rgba(28,28,26,.2);
   color: var(--bg);
 }
@@ -1144,7 +1144,7 @@ footer {
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="#waitlist" class="nav-cta">Join waitlist</a>
+  <a href="#waitlist" class="nav-cta">Get early access</a>
 </nav>
 
 <!-- HERO -->
@@ -1152,9 +1152,9 @@ footer {
   <div class="fade-up">
     <p class="hero-eyebrow">Now in closed beta</p>
     <h1>Your team plans.<br><em>Your leadership asks.</em></h1>
-    <p class="hero-sub">Plottie is a visual roadmap tool with a conversational AI layer. Teams maintain the plan at every level of your organisation. Leadership just asks questions — across teams, divisions, and programmes — and get answers in plain English, instantly.</p>
+    <p class="hero-sub">Stop running status meetings. Your roadmap answers leadership's questions for you — in plain English, across every team, division, and programme, instantly.</p>
     <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Join the waitlist</a>
+      <a href="#waitlist" class="btn-primary">Get early access</a>
       <a href="#how" class="btn-ghost">See how it works</a>
     </div>
     <div style="margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
@@ -1239,6 +1239,8 @@ footer {
   <h2 class="section-title">Organised teams.<br>Informed leaders.</h2>
   <p class="section-sub">Teams stay focused on what matters. Leaders stay informed and ready — without chasing updates, sitting through status meetings, or learning another tool.</p>
 
+  <p style="font-size:.82rem;color:var(--text2);border-left:2px solid var(--border2);padding:.5rem .85rem;margin-bottom:2.5rem;line-height:1.6;">Asana and Monday were built for task tracking. Plottie was built for the questions leadership actually asks: what's at risk, what's slipping, what's shipping.</p>
+
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">📅</div>
@@ -1318,7 +1320,7 @@ footer {
         <div class="testimonial-avatar">VP</div>
         <div>
           <div class="testimonial-name">VP of Learning & Development</div>
-          <div class="testimonial-role">Wall Street English — Pilot client</div>
+          <div class="testimonial-role">Pilot client</div>
         </div>
       </div>
     </div>
@@ -1348,26 +1350,20 @@ footer {
   <div class="eu-inner">
     <div class="eu-badge">EU-native infrastructure</div>
     <p class="section-label">Data residency</p>
-    <h2 class="section-title">Built in Europe.<br>Data stays in Europe.</h2>
-    <p class="section-sub">Every company in the chain is European. Not just the server location — the company itself. No US CLOUD Act exposure. We sign a DPA on day one for any paid plan.</p>
+    <h2 class="section-title">Built in Europe.<br>Stays in Europe.</h2>
+    <p class="section-sub">Plottie is a European company running on European infrastructure, end to end. Your data lives under EU jurisdiction from the moment you sign up. We sign a data protection agreement on day one of any paid plan.</p>
     <div class="eu-grid">
       <div class="eu-card">
         <div class="eu-flag">🇩🇪</div>
         <div class="eu-provider">Hetzner</div>
-        <div class="eu-location">Nuremberg, Germany — App & database</div>
-        <div class="eu-desc">German company. German jurisdiction. Your data on German soil, operated by a German company. No US parent.</div>
+        <div class="eu-location">Nuremberg, Germany — Data & hosting</div>
+        <div class="eu-desc">Your data sits in a German data centre, operated by a German company under German law. That's the whole stack — application, database, backups.</div>
       </div>
       <div class="eu-card">
         <div class="eu-flag">🇫🇷</div>
         <div class="eu-provider">Mistral AI</div>
-        <div class="eu-location">Paris, France — AI inference</div>
-        <div class="eu-desc">French company. EU AI Act compliant. API queries stay in EU infrastructure. No data retained or used for training.</div>
-      </div>
-      <div class="eu-card">
-        <div class="eu-flag">🇨🇭</div>
-        <div class="eu-provider">Infomaniak</div>
-        <div class="eu-location">Geneva, Switzerland — Domain & DNS</div>
-        <div class="eu-desc">Swiss company. Even your domain registration is European. The entire chain from DNS to AI runs under EU/EFTA jurisdiction.</div>
+        <div class="eu-location">Paris, France — AI</div>
+        <div class="eu-desc">The AI that answers your questions is built and hosted in France. Your data isn't stored after the query and never trains a model.</div>
       </div>
     </div>
   </div>
@@ -1391,9 +1387,6 @@ footer {
         <li class="included">2 active projects</li>
         <li class="included">Full Gantt</li>
         <li class="included">EU data residency</li>
-        <li>CSV export</li>
-        <li>AI queries</li>
-        <li>SSO</li>
       </ul>
     </div>
     <!-- Team -->
@@ -1401,8 +1394,7 @@ footer {
       <div class="price-tier">For growing teams</div>
       <div class="price-name">Team</div>
       <div class="price-amount">€99</div>
-      <div class="price-period">flat monthly price</div>
-      <div class="ai-highlight">5 AI queries / month — taste of Clarity</div>
+      <div class="ai-highlight">25 AI queries / month — upgrade for unlimited</div>
       <ul class="price-features">
         <li class="included">Up to 25 users</li>
         <li class="included">Unlimited projects</li>
@@ -1410,7 +1402,7 @@ footer {
         <li class="included">Audit trail</li>
         <li class="included">M365 / Google SSO</li>
         <li class="included">Read-only share link</li>
-        <li class="included">5 AI queries / mo</li>
+        <li class="included">25 AI queries / mo</li>
         <li>Unlimited AI</li>
       </ul>
     </div>
@@ -1419,7 +1411,6 @@ footer {
       <div class="price-tier">Most popular</div>
       <div class="price-name">Clarity</div>
       <div class="price-amount">€299</div>
-      <div class="price-period">flat monthly price</div>
       <div class="ai-highlight">Unlimited AI · Full hierarchy · Monday digest</div>
       <ul class="price-features">
         <li class="included">Unlimited users</li>
@@ -1436,7 +1427,6 @@ footer {
       <div class="price-tier">Regulated industries</div>
       <div class="price-name">Control</div>
       <div class="price-amount">€799</div>
-      <div class="price-period">flat monthly price</div>
       <div class="ai-highlight">Dedicated Hetzner VPS · Custom branding · DPA day one</div>
       <ul class="price-features">
         <li class="included">Unlimited users</li>
@@ -1461,9 +1451,13 @@ footer {
   <h2 class="section-title">Frequently asked.</h2>
 
   <div class="faq-list">
+    <div class="faq-item open">
+      <div class="faq-q">How is this different from Asana or Monday? <span class="faq-arrow">↓</span></div>
+      <div class="faq-a">Plottie is built for one job: keeping leadership and teams aligned on the plan without status meetings. Asana and Monday started as task trackers and grew outward from there — Plottie started from the roadmap and works down to the task. Different starting points, different shape of product. The tools are designed to coexist, and Plottie also runs entirely on EU infrastructure, which matters for regulated-industry buyers who can't put roadmap data on US-owned platforms.</div>
+    </div>
     <div class="faq-item">
       <div class="faq-q">What counts as an AI query? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Any question you ask your roadmap in plain English — "what's at risk this quarter?", "what is Alice working on?", "summarise last month". Each question is one query. The 5 monthly queries on Team tier are shared across your whole organisation and reset on your billing date. Clarity and Control have unlimited queries.</div>
+      <div class="faq-a">Any question you ask your roadmap in plain English — "what's at risk this quarter?", "what is Alice working on?", "summarise last month". Each question is one query. The 25 monthly queries on Team tier are shared across your whole organisation and reset on your billing date. Clarity and Control have unlimited queries.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What do you mean by organisational hierarchy? <span class="faq-arrow">↓</span></div>
@@ -1472,10 +1466,6 @@ footer {
     <div class="faq-item">
       <div class="faq-q">Does the AI see my roadmap data? <span class="faq-arrow">↓</span></div>
       <div class="faq-a">Yes, but only your tenant's data. When you ask a question, your server fetches your data and sends it to Mistral's EU infrastructure for processing. Mistral does not retain or train on API query content. On the Control plan, the AI model runs on your own dedicated server — nothing leaves your VPS.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How is this different from Asana or Monday? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Asana manages task execution — who does what, by when. Plottie communicates planning intent — what are we building, roughly when, who owns it. Most teams use both: Asana for daily task management, Plottie for quarterly planning visibility and leadership communication. We also run entirely on EU infrastructure, which rules out Asana for many regulated-industry buyers.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I migrate from an existing tool? <span class="faq-arrow">↓</span></div>
@@ -1497,7 +1487,7 @@ footer {
   <div class="waitlist-inner">
     <div>
       <p class="section-label">Early access</p>
-      <h2 class="waitlist-title">Join the waitlist.<br>Shape the product.</h2>
+      <h2 class="waitlist-title">Get early access.<br>Shape the product.</h2>
       <p class="waitlist-sub">Plottie is in closed beta. Early access members get discounted pricing, direct access to the founding team, and influence over the roadmap.</p>
       <div class="waitlist-perks" style="margin-top:1.5rem">
         <div class="waitlist-perk">First month free when we launch</div>
@@ -1509,27 +1499,10 @@ footer {
 
     <div>
       <div class="waitlist-form" id="waitlistForm">
-        <input type="text" class="waitlist-input" id="wl-name" placeholder="Your name" autocomplete="name">
         <input type="email" class="waitlist-input" id="wl-email" placeholder="Work email" autocomplete="email">
         <input type="text" class="waitlist-input" id="wl-company" placeholder="Company name">
-        <div style="display:flex;gap:.5rem">
-          <select class="waitlist-input" id="wl-size" style="flex:1">
-            <option value="" disabled selected>Team size</option>
-            <option>1–5 people</option>
-            <option>6–20 people</option>
-            <option>21–100 people</option>
-            <option>100+ people</option>
-          </select>
-          <select class="waitlist-input" id="wl-tier" style="flex:1">
-            <option value="" disabled selected>Interested in</option>
-            <option>Seed (free)</option>
-            <option>Team (€99/mo)</option>
-            <option>Clarity (€299/mo)</option>
-            <option>Control (€799/mo)</option>
-          </select>
-        </div>
-        <button class="waitlist-submit" onclick="submitWaitlist()">Request early access →</button>
-        <p class="waitlist-note">No spam. Unsubscribe any time. EU data only.</p>
+        <button class="waitlist-submit" onclick="submitWaitlist()">Get early access →</button>
+        <p class="waitlist-note">EU data only.</p>
       </div>
       <div class="waitlist-success" id="waitlistSuccess">
         ✓ You're on the list. We'll be in touch shortly with next steps.
@@ -1546,7 +1519,7 @@ footer {
     <a href="#">Terms</a>
     <a href="mailto:hello@plottie.eu">hello@plottie.eu</a>
   </div>
-  <span class="footer-note">© 2026 Juan Manuel Calisto · plottie.eu</span>
+  <span class="footer-note">© 2026 Plottie · plottie.eu</span>
 </footer>
 
 <script>
@@ -1562,16 +1535,11 @@ document.querySelectorAll('.faq-item .faq-q').forEach(q => {
 
 // Waitlist form
 async function submitWaitlist() {
-  const name    = document.getElementById('wl-name').value.trim();
   const email   = document.getElementById('wl-email').value.trim();
   const company = document.getElementById('wl-company').value.trim();
-  const size    = document.getElementById('wl-size').value;
-  const tier    = document.getElementById('wl-tier').value;
 
-  // Validate required fields
-  document.getElementById('wl-name').style.borderColor  = !name  ? 'var(--red)' : '';
   document.getElementById('wl-email').style.borderColor = !email ? 'var(--red)' : '';
-  if (!name || !email) return;
+  if (!email) return;
 
   const btn = document.querySelector('.waitlist-submit');
   btn.textContent = 'Sending...';
@@ -1581,7 +1549,7 @@ async function submitWaitlist() {
     const res = await fetch('https://formspree.io/f/mzdojgbr', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company, size, tier })
+      body: JSON.stringify({ email, company })
     });
 
     if (!res.ok) throw new Error('Form submission failed');
