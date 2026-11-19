@@ -26,7 +26,6 @@
   --border3: rgba(0,0,0,0.26);
   --green:   #4F8A10;
   --red:     #E24B4A;
-  --eu:      #1a6b4a;
   --radius:  8px;
   --radius-lg: 12px;
   --radius-pill: 999px;
@@ -314,75 +313,6 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   line-height: 1.6;
 }
 
-/* ── EU SECTION ── */
-.eu-section {
-  border-bottom: 1px solid var(--border);
-}
-
-.eu-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
-}
-
-.eu-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 560px;
-  gap: 1px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--border);
-  margin-top: 2rem;
-}
-
-.eu-card {
-  background: var(--bg2);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.eu-flag {
-  font-size: 1.4rem;
-}
-
-.eu-provider {
-  font-size: .92rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.eu-location {
-  font-size: .75rem;
-  color: var(--text3);
-}
-
-.eu-desc {
-  font-size: .82rem;
-  color: var(--text2);
-  line-height: 1.5;
-  margin-top: .25rem;
-}
-
-.eu-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(26,107,74,.3);
-  background: rgba(26,107,74,.08);
-  color: var(--eu);
-  font-size: .75rem;
-  font-weight: 500;
-  padding: .3rem .7rem;
-  border-radius: 4px;
-  margin-bottom: 1.5rem;
-  width: fit-content;
-}
-.eu-badge::before { content: '✓'; }
-
 /* ── FOUNDER ── */
 .founder {
   max-width: 720px;
@@ -640,10 +570,6 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .waitlist-submit { width: 100%; }
 
-.waitlist-note {
-  font-size: .75rem;
-  color: var(--text3);
-}
 
 .waitlist-perks {
   display: flex;
@@ -677,7 +603,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   font-size: .88rem;
-  color: var(--eu);
+  color: var(--green);
   line-height: 1.5;
 }
 
@@ -749,7 +675,7 @@ footer {
   .waitlist-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   section { padding: 3.5rem 1.25rem; }
   .hero-frame-wrap { padding: 0 1.25rem 3.5rem; }
-  .eu-inner, .waitlist-inner { padding: 3.5rem 1.25rem; }
+  .waitlist-inner { padding: 3.5rem 1.25rem; }
   footer { padding: 2rem 1.25rem; }
 }
 
@@ -788,7 +714,7 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <h1 class="fade-up">Your whole company on one roadmap.<br><em>One price, not per seat.</em></h1>
-  <p class="hero-sub fade-up d1">A simple Gantt for every team, and one place your leaders can ask “what’s slipping?” with the AI you already use. €149 a month for the whole company (€119 billed yearly), hosted in Europe.</p>
+  <p class="hero-sub fade-up d1">A simple Gantt for every team, and one place your leaders can ask “what’s slipping?” with the AI you already use. One flat price, no per seat: €149 a month for the whole company (€119 billed yearly).</p>
   <div class="hero-actions fade-up d2">
     <a href="#waitlist" class="btn">Join the beta</a>
     <p class="hero-note">30-day free trial. No card.</p>
@@ -873,36 +799,19 @@ footer {
 <!-- TODO(juan): real named quote with permission -->
 <!-- TODO(juan): real pilot numbers -->
 
-<!-- EU TRUST -->
-<div class="eu-section">
-  <div class="eu-inner">
-    <div class="eu-badge">Hosted in the EU</div>
-    <h2 class="section-title">Built in Europe.<br>Hosted in Europe.</h2>
-    <p class="section-sub">Plottie is a European company, and I host your data with Hetzner in Nuremberg, Germany. The AI is yours, connected through a connector, so it is not part of this stack. Enterprise plans include a data protection agreement.</p>
-    <div class="eu-grid">
-      <div class="eu-card">
-        <div class="eu-flag">🇩🇪</div>
-        <div class="eu-provider">Hetzner</div>
-        <div class="eu-location">Nuremberg, Germany — Data & hosting</div>
-        <div class="eu-desc">Application, database and backups all sit in a German data centre, run by a German company under German law.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- FOUNDER -->
 <section id="founder" class="founder">
   <img class="founder-photo" src="founder.webp" width="96" height="96" alt="Juanma, founder of Plottie">
   <div>
     <h2 class="section-title">Why I built Plottie</h2>
-    <p class="founder-text">Hi, I'm Juanma. <!-- TODO(juan): the moment you saw the problem: the status meetings, the decks, the leader who just wanted to know where things stood. --><span class="founder-placeholder">[Juan to write: why you built it]</span> So I built Plottie with three things in mind. One price for the whole company, because a plan only works when everyone's in it. Your data is hosted in Europe, on Hetzner in Germany. And leaders can just ask, with the AI they already use.</p>
+    <p class="founder-text">Hi, I'm Juanma. <!-- TODO(juan): the moment you saw the problem: the status meetings, the decks, the leader who just wanted to know where things stood. --><span class="founder-placeholder">[Juan to write: why you built it]</span> So I built Plottie with three things in mind. One price for the whole company, so everyone's in the plan. No per-seat math as you grow. And leaders can just ask, with the AI they already use.</p>
   </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing">
   <p class="section-kicker">Launch pricing</p>
-  <h2 class="section-title">One flat price.<br>Not per user, not per seat.</h2>
+  <h2 class="section-title">One flat price,<br>no per seat.</h2>
   <p class="section-sub">One monthly price for your whole company, at every level. Not per user, not per seat, not per team. Yearly billing saves 20%.</p>
 
   <div class="pricing-teaser">
@@ -971,7 +880,7 @@ footer {
   <div class="faq-list">
     <div class="faq-item open">
       <div class="faq-q">How is this different from Asana or Monday? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Asana and Monday started as task trackers. I built Plottie to start from the roadmap and work down to the task, so leaders can see the plan without a status meeting. Your data is hosted in the EU, on Hetzner in Nuremberg.</div>
+      <div class="faq-a">Asana and Monday started as task trackers. I built Plottie to start from the roadmap and work down to the task, so leaders can see the plan without a status meeting.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you charge per AI query? <span class="faq-arrow">↓</span></div>
@@ -1018,7 +927,6 @@ footer {
         <input type="email" class="waitlist-input" id="wl-email" placeholder="Work email" autocomplete="email">
         <input type="text" class="waitlist-input" id="wl-company" placeholder="Company name">
         <button class="btn waitlist-submit" onclick="submitWaitlist()">Join the beta</button>
-        <p class="waitlist-note">EU data only.</p>
       </div>
       <div class="waitlist-success" id="waitlistSuccess">
         ✓ You're on the list. We'll be in touch shortly with next steps.
@@ -1089,7 +997,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.features-grid .feature-card, .how-step, .eu-card, .price-card').forEach((el, i) => {
+document.querySelectorAll('.features-grid .feature-card, .how-step, .price-card').forEach((el, i) => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(16px)';
   el.style.transition = `opacity .5s ease ${i * 0.06}s, transform .5s ease ${i * 0.06}s`;
