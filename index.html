@@ -463,6 +463,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 .price-cta .btn { width: 100%; }
 .price-card.featured .btn { background: var(--bg); color: var(--text); }
+.price-amount a { color: inherit; text-decoration: none; }
 
 .price-cta-text {
   font-size: .84rem;
@@ -722,7 +723,7 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
+  <a href="/" class="nav-logo">
     Plottie
     <span class="nav-logo-dot"></span>
   </a>
@@ -858,7 +859,7 @@ footer {
       </ul>
       <div class="price-cta">
         <!-- TODO(juan): self-hosted repo URL -->
-        <p class="price-cta-text">View the repo</p>
+        <!-- <p class="price-cta-text">View the repo</p> -->
       </div>
     </div>
     <!-- Plottie Cloud — featured -->
@@ -884,7 +885,7 @@ footer {
     <div class="price-card">
       <div class="price-tier">Custom terms</div>
       <div class="price-name">Enterprise</div>
-      <div class="price-amount">Talk to us</div>
+      <div class="price-amount"><a href="#waitlist">Talk to us</a></div>
       <div class="price-period">Priced for your organisation</div>
       <ul class="price-features">
         <li class="included">Data protection agreement (DPA)</li>
@@ -893,12 +894,13 @@ footer {
       </ul>
       <div class="price-cta">
         <!-- TODO(juan): Talk to us address -->
-        <p class="price-cta-text">Talk to us</p>
+        <a href="#waitlist" class="btn">Talk to us</a>
       </div>
     </div>
   </div>
 
   <div class="pricing-foot">
+    <p class="pricing-footnote">Prices exclude VAT.</p>
     <p>25 people on monday.com Pro: €475/month billed yearly (€19 per seat). Plottie Cloud: €119/month billed yearly, any team size.</p>
     <p class="pricing-footnote">monday.com prices checked 19 Nov 2026.</p>
   </div>
@@ -931,11 +933,11 @@ footer {
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you support invoice billing for procurement? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Yes, on the Enterprise plan. Invoices are quarterly or yearly, in euros, with a DPA included. If procurement needs a security questionnaire, get in touch before signing.</div>
+      <div class="faq-a">Yes, on the Enterprise plan. Invoices are in euros, with a DPA included. If procurement needs a security questionnaire, get in touch before signing.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What happens to my data if I cancel? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Nothing is deleted when you downgrade. The product goes read-only, so you can still see your roadmap. If you cancel, you have 30 days to export everything as CSV.</div>
+      <div class="faq-a">When your trial ends or you cancel, your workspace goes read-only. Nothing is deleted, and you have 30 days to export everything as CSV.</div>
     </div>
   </div>
 </section>
@@ -945,7 +947,7 @@ footer {
   <div class="waitlist-inner">
     <div>
       <h2 class="waitlist-title">Get early access.<br>Shape the product.</h2>
-      <p class="waitlist-sub">Plottie is in closed beta. Early access members get discounted pricing, direct access to the founding team, and influence over the roadmap.</p>
+      <p class="waitlist-sub">Plottie is in closed beta. Early access members get direct access to the founding team, and influence over the roadmap.</p>
       <div class="waitlist-perks" style="margin-top:1.5rem">
         <div class="waitlist-perk">Lock in launch pricing before public release</div>
         <div class="waitlist-perk">Direct Slack channel with the founding team</div>
@@ -970,8 +972,10 @@ footer {
 <footer>
   <span class="footer-logo">Plottie</span>
   <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
+    <!-- TODO(juan): Privacy policy URL -->
+    <!-- <a href="#">Privacy</a> -->
+    <!-- TODO(juan): Terms URL -->
+    <!-- <a href="#">Terms</a> -->
     <a href="mailto:hello@plottie.eu">hello@plottie.eu</a>
   </div>
   <span class="footer-note">© 2026 Plottie · plottie.eu</span>
