@@ -26,14 +26,13 @@
   --border3: rgba(0,0,0,0.26);
   --green:   #4F8A10;
   --red:     #E24B4A;
-  --eu:      #1a6b4a;
   --radius:  8px;
   --radius-lg: 12px;
   --radius-pill: 999px;
 }
 
 html { scroll-behavior: smooth; }
-#features, #how, #pricing, #faq, #waitlist { scroll-margin-top: 76px; }
+#features, #how, #founder, #pricing, #faq, #waitlist { scroll-margin-top: 76px; }
 
 body {
   background: var(--bg);
@@ -133,7 +132,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 /* ── HERO ── */
 .hero {
-  padding: 7rem 2rem 5.5rem;
+  padding: 7rem 2rem 3.5rem;
   max-width: 860px;
   margin: 0 auto;
   display: flex;
@@ -176,6 +175,45 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .hero-note {
   font-size: .82rem;
+  color: var(--text3);
+}
+
+/* ── HERO PRODUCT FRAME (placeholder until a real screenshot exists) ── */
+.hero-frame-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 5.5rem;
+}
+
+.hero-frame {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 16px 40px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+
+.hero-frame-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-frame-url {
+  font-family: 'Geist Mono', monospace;
+  font-size: .72rem;
+  color: var(--text3);
+}
+
+.hero-frame-body {
+  height: clamp(180px, 36vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
   color: var(--text3);
 }
 
@@ -275,162 +313,40 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   line-height: 1.6;
 }
 
-/* ── TESTIMONIAL ── */
-.testimonial-section {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.testimonial-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.testimonial-quote {
-  font-family: 'Instrument Serif', serif;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  line-height: 1.4;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-quote em {
-  font-style: italic;
-  color: var(--text2);
-}
-
-.testimonial-attr {
+/* ── FOUNDER ── */
+.founder {
+  max-width: 720px;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 2.5rem;
 }
 
-.testimonial-avatar {
-  width: 36px; height: 36px;
+.founder-photo {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: var(--bg3);
+  object-fit: cover;
   border: 1px solid var(--border2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .8rem;
+}
+
+.founder .section-title {
+  margin-bottom: 1.25rem;
+}
+
+.founder-text {
+  font-size: 1rem;
   color: var(--text2);
+  line-height: 1.75;
+  text-wrap: pretty;
 }
 
-.testimonial-name {
-  font-size: .85rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.testimonial-role {
-  font-size: .78rem;
-  color: var(--text3);
-}
-
-.testimonial-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--border);
-}
-
-.stat-card {
-  background: var(--bg);
-  padding: 1.5rem;
-}
-
-.stat-number {
-  font-family: 'Instrument Serif', serif;
-  font-size: 2.2rem;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: .3rem;
-}
-
-.stat-label {
-  font-size: .78rem;
-  color: var(--text3);
-  line-height: 1.4;
-}
-
-/* ── EU SECTION ── */
-.eu-section {
-  border-bottom: 1px solid var(--border);
-}
-
-.eu-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
-}
-
-.eu-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 560px;
-  gap: 1px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--border);
-  margin-top: 2rem;
-}
-
-.eu-card {
-  background: var(--bg2);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.eu-flag {
-  font-size: 1.4rem;
-}
-
-.eu-provider {
-  font-size: .92rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.eu-location {
-  font-size: .75rem;
-  color: var(--text3);
-}
-
-.eu-desc {
-  font-size: .82rem;
+.founder-placeholder {
+  background: #FFF3A3;
   color: var(--text2);
-  line-height: 1.5;
-  margin-top: .25rem;
+  padding: 0 .3em;
+  border-radius: 3px;
 }
-
-.eu-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(26,107,74,.3);
-  background: rgba(26,107,74,.08);
-  color: var(--eu);
-  font-size: .75rem;
-  font-weight: 500;
-  padding: .3rem .7rem;
-  border-radius: 4px;
-  margin-bottom: 1.5rem;
-  width: fit-content;
-}
-.eu-badge::before { content: '✓'; }
 
 /* ── PRICING ── */
 .pricing-teaser {
@@ -654,10 +570,6 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .waitlist-submit { width: 100%; }
 
-.waitlist-note {
-  font-size: .75rem;
-  color: var(--text3);
-}
 
 .waitlist-perks {
   display: flex;
@@ -691,7 +603,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   border-radius: var(--radius);
   padding: 1rem 1.25rem;
   font-size: .88rem;
-  color: var(--eu);
+  color: var(--green);
   line-height: 1.5;
 }
 
@@ -759,11 +671,11 @@ footer {
   .features-grid { grid-template-columns: 1fr 1fr; }
   .how-grid { grid-template-columns: 1fr 1fr; }
   .how-step { border-bottom: 1px solid var(--border); }
-  .testimonial-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .pricing-teaser { grid-template-columns: 1fr; }
   .waitlist-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   section { padding: 3.5rem 1.25rem; }
-  .testimonial-inner, .eu-inner, .waitlist-inner { padding: 3.5rem 1.25rem; }
+  .hero-frame-wrap { padding: 0 1.25rem 3.5rem; }
+  .waitlist-inner { padding: 3.5rem 1.25rem; }
   footer { padding: 2rem 1.25rem; }
 }
 
@@ -777,6 +689,8 @@ footer {
   .features-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
   .how-step { border-right: none; }
+  .hero-frame-bar { height: 30px; }
+  .founder { flex-direction: column; gap: 1.5rem; }
 }
 </style>
 </head>
@@ -800,10 +714,20 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <h1 class="fade-up">Your whole company on one roadmap.<br><em>One price, not per seat.</em></h1>
-  <p class="hero-sub fade-up d1">A simple Gantt for every team, and an AI your leaders can ask “what’s slipping?”. From €149 a month for the whole team (€119 billed yearly), with your data hosted in Europe.</p>
+  <p class="hero-sub fade-up d1">A simple Gantt for every team, and one place your leaders can ask “what’s slipping?” with the AI you already use. One flat price, no per seat: €149 a month for the whole company (€119 billed yearly).</p>
   <div class="hero-actions fade-up d2">
     <a href="#waitlist" class="btn">Join the beta</a>
-    <p class="hero-note">Self-hosted is free. Cloud has a 30-day trial, no card required.</p>
+    <p class="hero-note">30-day free trial. No card.</p>
+  </div>
+</div>
+
+<!-- HERO PRODUCT FRAME -->
+<div class="hero-frame-wrap fade-up d2">
+  <div class="hero-frame">
+    <div class="hero-frame-bar"><span class="hero-frame-url">app.plottie.eu/roadmap</span></div>
+    <!-- TODO(juan): real app screenshot from demo workspace -->
+    <!-- Swap the div below for <img src="..." alt="..." style="display:block;width:100%"> -->
+    <div class="hero-frame-body">Product screenshot coming soon</div>
   </div>
 </div>
 
@@ -811,35 +735,33 @@ footer {
 
 <!-- FEATURES -->
 <section id="features">
-  <h2 class="section-title">Organised teams.<br>Informed leaders.</h2>
-  <p class="section-sub">Teams stay focused on what matters. Leaders stay informed and ready — without chasing updates, sitting through status meetings, or learning another tool.</p>
-
-  <p style="font-size:.82rem;color:var(--text2);border-left:2px solid var(--border2);padding:.5rem .85rem;margin-bottom:2.5rem;line-height:1.6;">Asana and Monday were built for task tracking. Plottie was built for the questions leadership actually asks: what's at risk, what's slipping, what's shipping.</p>
+  <h2 class="section-title">What you get.</h2>
+  <p class="section-sub">A roadmap everyone can read, and answers for the people who ask.</p>
 
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-title">Multi-year Gantt</div>
-      <div class="feature-desc">Tasks span months or years with weekly granularity. Continuation pips mark cross-year extents. Today indicator. Overdue highlighting.</div>
+      <div class="feature-title">Gantt</div>
+      <div class="feature-desc">Plan in weeks, months or years. Today is always marked.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Conversational AI</div>
-      <div class="feature-desc">Ask your roadmap anything in plain English. "What's at risk this quarter?" gets an instant answer — not a Jira query. Bring your own AI through a connector (ChatGPT, Claude, and so on).</div>
+      <div class="feature-title">Ask</div>
+      <div class="feature-desc">Type 'what's at risk this quarter?' and get an answer, using the AI you already use.</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Monday digest</div>
-      <div class="feature-desc">Automated plain English summary emailed every Monday morning. Leadership stays informed without logging in. No chasing, no status decks.</div>
+      <div class="feature-desc">A plain summary in every leader's inbox on Monday morning.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Privacy when you need it</div>
-      <div class="feature-desc">Mark projects as private or team-wide. Sensitive programmes stay visible only to the people who need to know.</div>
+      <div class="feature-title">Risks and notes</div>
+      <div class="feature-desc">Attach a blocker to any task. Every change is logged.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Track risks before they become problems</div>
-      <div class="feature-desc">Attach notes, risks, and blockers to any task. Filter by type or owner. Every change is logged — who did what, when.</div>
+      <div class="feature-title">Private projects</div>
+      <div class="feature-desc">Keep a sensitive programme to the people who need it.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-title">Teams & Slack bot</div>
-      <div class="feature-desc">Ask roadmap questions directly from Teams or Slack. Leadership gets answers in the tools they already live in — no new tab required.</div>
+      <div class="feature-title">Teams and Slack</div>
+      <div class="feature-desc">Ask without opening another tab.</div>
     </div>
   </div>
 </section>
@@ -847,89 +769,49 @@ footer {
 <!-- HOW IT WORKS -->
 <section id="how" style="padding-top:0">
   <h2 class="section-title">Up and running<br>in minutes.</h2>
-  <p class="section-sub">No onboarding call needed. No implementation project. Sign up, build your organisational structure, invite your teams.</p>
+  <p class="section-sub">No onboarding call, no implementation project. Sign up, add your teams, invite your people.</p>
 
   <div class="how-grid">
     <div class="how-step">
       <div class="how-number">01</div>
       <div class="how-title">Create your organisation</div>
-      <div class="how-desc">Sign in with Microsoft 365 or Google. Build your hierarchy — divisions, departments, teams — as deep as your organisation needs.</div>
+      <div class="how-desc">Sign in with Microsoft 365 or Google. Add your divisions, departments and teams.</div>
     </div>
     <div class="how-step">
       <div class="how-number">02</div>
       <div class="how-title">Build your roadmaps</div>
-      <div class="how-desc">Each level has its own Gantt. Tasks roll up automatically. Add owners, statuses, and notes at any level of the hierarchy.</div>
+      <div class="how-desc">Every team gets its own Gantt. Tasks roll up to the level above.</div>
     </div>
     <div class="how-step">
       <div class="how-number">03</div>
       <div class="how-title">Invite your people</div>
-      <div class="how-desc">Team members sign in with their existing work account. Each person sees the levels they belong to. Leadership sees everything.</div>
+      <div class="how-desc">Everyone signs in with their work account and sees the parts they belong to. Leaders see everything.</div>
     </div>
     <div class="how-step">
       <div class="how-number">04</div>
-      <div class="how-title">Let leadership ask</div>
-      <div class="how-desc">Connect your own AI and ask questions across the whole organisation in plain English. Answers draw on every level of the hierarchy. Status meetings optional.</div>
+      <div class="how-title">Let leaders ask</div>
+      <div class="how-desc">Connect the AI you already use and ask across the whole company in plain English.</div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<div class="testimonial-section">
-  <div class="testimonial-inner">
-    <div>
-      <blockquote class="testimonial-quote">
-        "We finally have one place where <em>everyone can see the plan</em> — and leadership can actually ask questions without needing a demo."
-      </blockquote>
-      <div class="testimonial-attr">
-        <div class="testimonial-avatar">VP</div>
-        <div>
-          <div class="testimonial-name">VP of Learning & Development</div>
-          <div class="testimonial-role">Pilot client</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-stats">
-      <div class="stat-card">
-        <div class="stat-number">3+</div>
-        <div class="stat-label">Teams live on Plottie in the pilot</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">0</div>
-        <div class="stat-label">Status meetings replaced by AI queries</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">5 min</div>
-        <div class="stat-label">Average time to onboard a new team member</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">EU</div>
-        <div class="stat-label">Data hosted in the EU (Hetzner, Nuremberg)</div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- PROOF: nothing rendered here until there is real, approved proof -->
+<!-- TODO(juan): real named quote with permission -->
+<!-- TODO(juan): real pilot numbers -->
 
-<!-- EU TRUST -->
-<div class="eu-section">
-  <div class="eu-inner">
-    <div class="eu-badge">EU-native infrastructure</div>
-    <h2 class="section-title">Built in Europe.<br>Hosted in Europe.</h2>
-    <p class="section-sub">Plottie is a European company. Your data is hosted by Hetzner in Nuremberg, Germany, under EU jurisdiction from the moment you sign up. AI is bring-your-own through a connector (ChatGPT, Claude, and so on), so it is not part of this stack. Enterprise plans include a data protection agreement.</p>
-    <div class="eu-grid">
-      <div class="eu-card">
-        <div class="eu-flag">🇩🇪</div>
-        <div class="eu-provider">Hetzner</div>
-        <div class="eu-location">Nuremberg, Germany — Data & hosting</div>
-        <div class="eu-desc">Your data sits in a German data centre, operated by a German company under German law. That's the whole stack — application, database, backups.</div>
-      </div>
-    </div>
+<!-- FOUNDER -->
+<section id="founder" class="founder">
+  <img class="founder-photo" src="founder.webp" width="96" height="96" alt="Juanma, founder of Plottie">
+  <div>
+    <h2 class="section-title">Why I built Plottie</h2>
+    <p class="founder-text">Hi, I'm Juanma. <!-- TODO(juan): the moment you saw the problem: the status meetings, the decks, the leader who just wanted to know where things stood. --><span class="founder-placeholder">[Juan to write: why you built it]</span> So I built Plottie with three things in mind. One price for the whole company, so everyone's in the plan. No per-seat math as you grow. And leaders can just ask, with the AI they already use.</p>
   </div>
-</div>
+</section>
 
 <!-- PRICING -->
 <section id="pricing">
   <p class="section-kicker">Launch pricing</p>
-  <h2 class="section-title">One flat price.<br>Not per user, not per seat.</h2>
+  <h2 class="section-title">One flat price,<br>no per seat.</h2>
   <p class="section-sub">One monthly price for your whole company, at every level. Not per user, not per seat, not per team. Yearly billing saves 20%.</p>
 
   <div class="pricing-teaser">
@@ -998,31 +880,31 @@ footer {
   <div class="faq-list">
     <div class="faq-item open">
       <div class="faq-q">How is this different from Asana or Monday? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Plottie is built for one job: keeping leadership and teams aligned on the plan without status meetings. Asana and Monday started as task trackers and grew outward from there — Plottie started from the roadmap and works down to the task. Different starting points, different shape of product. The tools are designed to coexist, and Plottie's data and hosting live in the EU (Hetzner, Nuremberg), which matters for regulated-industry buyers who can't put roadmap data on US-owned platforms.</div>
+      <div class="faq-a">Asana and Monday started as task trackers. I built Plottie to start from the roadmap and work down to the task, so leaders can see the plan without a status meeting.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you charge per AI query? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">No. AI in Plottie is bring-your-own through a connector (ChatGPT, Claude, and so on). We don't sell metered built-in queries.</div>
+      <div class="faq-a">No. You connect the AI you already use (ChatGPT, Claude, and so on) through a connector. I don't sell metered queries.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What do you mean by organisational hierarchy? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Plottie mirrors how real organisations work — Organisation → Division → Department → Team → Programme → Project. Each level has its own roadmap and rolls up into the one above. A CLO can see the entire L&D operation in one view. A team lead sees only their area. Connect your own AI and you can ask across the whole hierarchy — "what's the status of the digital transformation programme across all regions?" — and get an answer that aggregates automatically. No spreadsheet, no status meeting.</div>
+      <div class="faq-q">What do you mean by hierarchy? <span class="faq-arrow">↓</span></div>
+      <div class="faq-a">Plottie mirrors how your company is organised: organisation, division, department, team, programme, project. Each level has its own roadmap and rolls up into the one above. A leader sees the whole picture. A team lead sees their own area.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Does the AI see my roadmap data? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Only through the AI you connect. Plottie has no built-in model: you bring your own through a connector (ChatGPT, Claude, and so on), and that provider's own data terms apply. <!-- TODO(juan): confirm what the connector sends to the provider and whether to link each provider's data policy --></div>
+      <div class="faq-a">Only through the AI you connect. Plottie has no built-in model. You bring your own (ChatGPT, Claude, and so on) and that provider's data terms apply. <!-- TODO(juan): confirm what the connector sends to the provider and whether to link each provider's data policy --></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I migrate from an existing tool? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Yes. Plottie supports CSV import for tasks and projects. If you're on an older single-tenant Plottie instance, we provide a migration script that moves your projects, tasks, and notes into the new platform with historical audit trail preserved.</div>
+      <div class="faq-a">Yes. You can import tasks and projects from CSV. If you're on an older single-tenant Plottie instance, there's a migration script that brings your projects, tasks and notes across, history included.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you support invoice billing for procurement? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Yes, on the Enterprise plan. We issue quarterly or annual invoices in EUR with a DPA included as standard. If your procurement process requires a vendor security questionnaire, get in touch before signing.</div>
+      <div class="faq-a">Yes, on the Enterprise plan. Invoices are quarterly or yearly, in euros, with a DPA included. If procurement needs a security questionnaire, get in touch before signing.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What happens to my data if I cancel? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Your data is never deleted on downgrade — the product goes read-only so you can still see your roadmap. On cancellation, you have 30 days to export everything via CSV before removal. We don't hold data hostage.</div>
+      <div class="faq-a">Nothing is deleted when you downgrade. The product goes read-only, so you can still see your roadmap. If you cancel, you have 30 days to export everything as CSV.</div>
     </div>
   </div>
 </section>
@@ -1034,7 +916,6 @@ footer {
       <h2 class="waitlist-title">Get early access.<br>Shape the product.</h2>
       <p class="waitlist-sub">Plottie is in closed beta. Early access members get discounted pricing, direct access to the founding team, and influence over the roadmap.</p>
       <div class="waitlist-perks" style="margin-top:1.5rem">
-        <div class="waitlist-perk">First month free when we launch</div>
         <div class="waitlist-perk">Lock in launch pricing before public release</div>
         <div class="waitlist-perk">Direct Slack channel with the founding team</div>
         <div class="waitlist-perk">Vote on features before they're built</div>
@@ -1046,7 +927,6 @@ footer {
         <input type="email" class="waitlist-input" id="wl-email" placeholder="Work email" autocomplete="email">
         <input type="text" class="waitlist-input" id="wl-company" placeholder="Company name">
         <button class="btn waitlist-submit" onclick="submitWaitlist()">Join the beta</button>
-        <p class="waitlist-note">EU data only.</p>
       </div>
       <div class="waitlist-success" id="waitlistSuccess">
         ✓ You're on the list. We'll be in touch shortly with next steps.
@@ -1117,7 +997,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.features-grid .feature-card, .how-step, .stat-card, .eu-card, .price-card').forEach((el, i) => {
+document.querySelectorAll('.features-grid .feature-card, .how-step, .price-card').forEach((el, i) => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(16px)';
   el.style.transition = `opacity .5s ease ${i * 0.06}s, transform .5s ease ${i * 0.06}s`;
