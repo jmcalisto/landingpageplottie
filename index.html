@@ -19,12 +19,12 @@
   --bg:      #1c1c1a;
   --bg2:     #242422;
   --bg3:     #2c2c2a;
-  --text:    #e8e6df;
+  --text:    #e8e6de;
   --text2:   #b0aea6;
   --text3:   #9c9a92;
   --border:  #2c2c2a;
-  --border2: rgba(232,230,223,0.12);
-  --border3: rgba(232,230,223,0.22);
+  --border2: rgba(232,230,222,0.12);
+  --border3: rgba(232,230,222,0.22);
   --green:   #A3C96A;
   --red:     #E24B4A;
   --radius:  8px;
@@ -76,7 +76,7 @@ nav {
 .nav-logo-dot {
   width: 7px; height: 7px;
   background: var(--red);
-  border-radius: 50%;
+  border-radius: 1px;
 }
 
 .nav-links {
@@ -179,7 +179,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   color: var(--text3);
 }
 
-/* ── HERO PRODUCT FRAME (placeholder until a real screenshot exists) ── */
+/* ── HERO PRODUCT FRAME ── */
 .hero-frame-wrap {
   max-width: 1100px;
   margin: 0 auto;
@@ -210,12 +210,15 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .hero-frame-body {
-  height: clamp(180px, 36vw, 420px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .75rem;
-  color: var(--text3);
+  display: block;
+  line-height: 0;
+  background: #1c1c1a;
+}
+
+.hero-frame-body img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ── SECTION HEADINGS ── */
@@ -245,9 +248,31 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 /* ── FEATURES ── */
+.features-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 400px);
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.feature-shot {
+  margin: 0;
+  background: #1c1c1a;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 28px rgba(0,0,0,.28);
+}
+
+.feature-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -341,13 +366,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   line-height: 1.75;
   text-wrap: pretty;
 }
-
-.founder-placeholder {
-  background: #E0C15A;
-  color: #1c1c1a;
-  padding: 0 .3em;
-  border-radius: 3px;
-}
+.founder-text + .founder-text { margin-top: 1em; }
 
 /* ── PRICING ── */
 .pricing-teaser {
@@ -669,6 +688,8 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero { padding: 4.5rem 1.25rem 3.5rem; }
+  .features-layout { grid-template-columns: 1fr; }
+  .feature-shot { max-width: 420px; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .how-grid { grid-template-columns: 1fr 1fr; }
   .how-step { border-bottom: 1px solid var(--border); }
@@ -687,6 +708,8 @@ footer {
   .hero { padding: 3.5rem 1.25rem 3rem; }
   .hero h1 { font-size: 2.4rem; }
   .hero-sub { font-size: 1rem; }
+  .features-layout { grid-template-columns: 1fr; }
+  .feature-shot { max-width: 100%; }
   .features-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
   .how-step { border-right: none; }
@@ -726,9 +749,9 @@ footer {
 <div class="hero-frame-wrap fade-up d2">
   <div class="hero-frame">
     <div class="hero-frame-bar"><span class="hero-frame-url">app.plottie.eu/roadmap</span></div>
-    <!-- TODO(juan): real app screenshot from demo workspace -->
-    <!-- Swap the div below for <img src="..." alt="..." style="display:block;width:100%"> -->
-    <div class="hero-frame-body">Product screenshot coming soon</div>
+    <div class="hero-frame-body">
+      <img src="roadmap-month-dark.webp" width="2200" height="917" alt="A Plottie monthly roadmap for a Product Launch project, with tasks scheduled from June to December." loading="eager">
+    </div>
   </div>
 </div>
 
@@ -739,6 +762,7 @@ footer {
   <h2 class="section-title">What you get.</h2>
   <p class="section-sub">A roadmap everyone can read, and answers for the people who ask.</p>
 
+  <div class="features-layout">
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-title">Gantt</div>
@@ -746,7 +770,7 @@ footer {
     </div>
     <div class="feature-card">
       <div class="feature-title">Ask</div>
-      <div class="feature-desc">Type 'what's at risk this quarter?' and get an answer, using the AI you already use.</div>
+      <div class="feature-desc">Type “what’s at risk this quarter?” and get an answer. The AI you already use can also update work, tag people, comment, and add projects.</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Monday digest</div>
@@ -764,6 +788,10 @@ footer {
       <div class="feature-title">Teams and Slack</div>
       <div class="feature-desc">Ask without opening another tab.</div>
     </div>
+  </div>
+  <figure class="feature-shot">
+    <img src="task-detail-dark.webp" width="960" height="850" alt="A Plottie task called Beta testing, showing status, tags and a checklist." loading="lazy">
+  </figure>
   </div>
 </section>
 
@@ -791,7 +819,7 @@ footer {
     <div class="how-step">
       <div class="how-number">04</div>
       <div class="how-title">Let leaders ask</div>
-      <div class="how-desc">Connect the AI you already use and ask across the whole company in plain English.</div>
+      <div class="how-desc">Connect the AI you already use. It can read and update work, tag people, comment, and add projects, in plain English.</div>
     </div>
   </div>
 </section>
@@ -805,7 +833,9 @@ footer {
   <img class="founder-photo" src="founder.webp" width="96" height="96" alt="Juanma, founder of Plottie">
   <div>
     <h2 class="section-title">Why I built Plottie</h2>
-    <p class="founder-text">Hi, I'm Juanma. <!-- TODO(juan): the moment you saw the problem: the status meetings, the decks, the leader who just wanted to know where things stood. --><span class="founder-placeholder">[Juan to write: why you built it]</span> So I built Plottie with three things in mind. One price for the whole company, so everyone's in the plan. No per-seat math as you grow. And leaders can just ask, with the AI they already use.</p>
+    <p class="founder-text">Hi, I’m Juanma. I built Plottie because I saw a lot of room for improvement in project management tools. Too many one-to-ones, and too little visibility into what everyone else is doing, especially as companies grow.</p>
+    <p class="founder-text">Then I tried to buy a project management tool, and per-seat pricing made it a mess to manage across all the teams I’m part of.</p>
+    <p class="founder-text">So I made this. One price, and that’s it. Your AI connects to it (through MCP), so you can look at any project, update it, tag people, comment, and add new ones. Much more freedom.</p>
   </div>
 </section>
 
@@ -843,7 +873,7 @@ footer {
         <li class="included">Every feature, including the full hierarchy roll-up</li>
         <li class="included">Monday digest email</li>
         <li class="included">Teams + Slack bot</li>
-        <li class="included">Bring your own AI through a connector (ChatGPT, Claude, and so on)</li>
+        <li class="included">Bring your own AI through a connector (ChatGPT, Claude, and so on). It can read and update work, tag people, comment, and add projects.</li>
         <li class="included">30-day free trial, no card required</li>
       </ul>
       <div class="price-cta">
@@ -885,7 +915,7 @@ footer {
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you charge per AI query? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">No. You connect the AI you already use (ChatGPT, Claude, and so on) through a connector. I don't sell metered queries.</div>
+      <div class="faq-a">No. You connect the AI you already use (ChatGPT, Claude, and so on) through MCP. It can read and update work, tag people, comment, and add projects. I don't sell metered queries.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What do you mean by hierarchy? <span class="faq-arrow">↓</span></div>
@@ -893,7 +923,7 @@ footer {
     </div>
     <div class="faq-item">
       <div class="faq-q">Does the AI see my roadmap data? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Only through the AI you connect. Plottie has no built-in model. You bring your own (ChatGPT, Claude, and so on) and that provider's data terms apply. <!-- TODO(juan): confirm what the connector sends to the provider and whether to link each provider's data policy --></div>
+      <div class="faq-a">Only through the AI you connect. Plottie has no built-in model. You bring your own (ChatGPT, Claude, and so on). That AI can read and update work, tag people, comment, and add projects, and that provider's data terms apply. <!-- TODO(juan): confirm what the connector sends to the provider and whether to link each provider's data policy --></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I migrate from an existing tool? <span class="faq-arrow">↓</span></div>
