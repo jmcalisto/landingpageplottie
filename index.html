@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1c1c1a">
 <title>Plottie — Your roadmap has answers</title>
+<meta name="description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat: €149 a month (€119 billed yearly).">
+<link rel="canonical" href="https://www.plottie.eu/"/>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.plottie.eu/">
+<meta property="og:title" content="Plottie — Your roadmap has answers">
+<meta property="og:description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat.">
+<meta property="og:image" content="https://www.plottie.eu/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A Plottie monthly roadmap with tasks scheduled across the year">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plottie — Your roadmap has answers">
+<meta name="twitter:description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat.">
+<meta name="twitter:image" content="https://www.plottie.eu/og-image.png">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="plottie-favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="plottie-favicon-16.png" type="image/png" sizes="16x16">
@@ -571,6 +585,11 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   flex-direction: column;
   gap: .75rem;
 }
+.waitlist-form label {
+  font-size: .82rem;
+  color: var(--text2);
+  margin-bottom: -.35rem;
+}
 
 .waitlist-input {
   background: var(--bg);
@@ -616,7 +635,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   margin-top: 2px;
 }
 
-/* ── SUCCESS STATE ── */
+/* ── SUCCESS / ERROR STATE ── */
 .waitlist-success {
   display: none;
   background: rgba(26,107,74,.08);
@@ -625,6 +644,16 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   padding: 1rem 1.25rem;
   font-size: .88rem;
   color: var(--green);
+  line-height: 1.5;
+}
+.waitlist-error {
+  display: none;
+  background: rgba(226,75,74,.08);
+  border: 1px solid rgba(226,75,74,.35);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: .88rem;
+  color: var(--red);
   line-height: 1.5;
 }
 
@@ -718,11 +747,91 @@ footer {
   .founder { flex-direction: column; gap: 1.5rem; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Plottie",
+      "url": "https://www.plottie.eu/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "149",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is this different from Asana or Monday?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Asana and Monday started as task trackers. I built Plottie to start from the roadmap and work down to the task, so leaders can see the plan without a status meeting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you charge per AI query?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You connect the AI you already use (ChatGPT, Claude, and so on) through MCP. It can read and update work, tag people, comment, and add projects. I don't sell metered queries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do you mean by hierarchy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plottie mirrors how your company is organised: company, departments, teams, and projects. Each level has its own roadmap and rolls up into the one above. A leader sees the whole picture. A team lead sees their own area."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the AI see my roadmap data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only through the AI you connect. Plottie has no built-in model. You bring your own (ChatGPT, Claude, and so on). That AI can read and update work, tag people, comment, and add projects, and that provider's data terms apply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I migrate from an existing tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can import tasks and projects from CSV. If you're on an older single-tenant Plottie instance, there's a migration script that brings your projects, tasks and notes across, history included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my data if I cancel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When your trial ends or you cancel, your workspace goes read-only. Nothing is deleted, and you have 30 days to export everything as CSV."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you support invoice billing for procurement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, on the Enterprise plan. Invoices are in euros, with a DPA included. If procurement needs a security questionnaire, get in touch before signing."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Main">
   <a href="/" class="nav-logo">
     Plottie
     <span class="nav-logo-dot"></span>
@@ -735,6 +844,9 @@ footer {
   </div>
   <a href="#waitlist" class="btn nav-cta">Join the beta</a>
 </nav>
+
+<main>
+
 
 <!-- HERO -->
 <div class="hero">
@@ -957,17 +1069,22 @@ footer {
     </div>
 
     <div>
-      <div class="waitlist-form" id="waitlistForm">
-        <input type="email" class="waitlist-input" id="wl-email" placeholder="Work email" autocomplete="email">
-        <input type="text" class="waitlist-input" id="wl-company" placeholder="Company name">
-        <button class="btn waitlist-submit" onclick="submitWaitlist()">Join the beta</button>
-      </div>
-      <div class="waitlist-success" id="waitlistSuccess">
+      <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/mzdojgbr" method="post">
+        <label for="wl-email">Work email</label>
+        <input type="email" class="waitlist-input" id="wl-email" name="email" autocomplete="email" required>
+        <label for="wl-company">Company name</label>
+        <input type="text" class="waitlist-input" id="wl-company" name="company" autocomplete="organization">
+        <button type="submit" class="btn waitlist-submit">Join the beta</button>
+      </form>
+      <p class="waitlist-error" id="waitlistError" role="alert">Couldn't send that. Please try again.</p>
+      <div class="waitlist-success" id="waitlistSuccess" role="status">
         ✓ You're on the list. We'll be in touch shortly with next steps.
       </div>
     </div>
   </div>
 </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -993,34 +1110,46 @@ document.querySelectorAll('.faq-item .faq-q').forEach(q => {
   });
 });
 
-// Waitlist form
-async function submitWaitlist() {
-  const email   = document.getElementById('wl-email').value.trim();
-  const company = document.getElementById('wl-company').value.trim();
+// Waitlist form — success only on a real Formspree success response
+const waitlistForm = document.getElementById('waitlistForm');
+waitlistForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const emailInput = document.getElementById('wl-email');
+  const companyInput = document.getElementById('wl-company');
+  const errorEl = document.getElementById('waitlistError');
+  const successEl = document.getElementById('waitlistSuccess');
+  const email = emailInput.value.trim();
+  const company = companyInput.value.trim();
 
-  document.getElementById('wl-email').style.borderColor = !email ? 'var(--red)' : '';
-  if (!email) return;
+  errorEl.style.display = 'none';
+  emailInput.style.borderColor = !email ? 'var(--red)' : '';
+  if (!email) {
+    emailInput.focus();
+    return;
+  }
 
-  const btn = document.querySelector('.waitlist-submit');
+  const btn = waitlistForm.querySelector('.waitlist-submit');
+  const originalLabel = btn.textContent;
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://formspree.io/f/mzdojgbr', {
+    const res = await fetch(waitlistForm.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ email, company })
     });
-
     if (!res.ok) throw new Error('Form submission failed');
-  } catch(e) {
-    // Fail silently — still show success to avoid UX friction
-    console.error('Formspree error:', e);
+    waitlistForm.style.display = 'none';
+    errorEl.style.display = 'none';
+    successEl.style.display = 'block';
+  } catch (err) {
+    console.error('Formspree error:', err);
+    errorEl.style.display = 'block';
+    btn.textContent = originalLabel;
+    btn.disabled = false;
   }
-
-  document.getElementById('waitlistForm').style.display = 'none';
-  document.getElementById('waitlistSuccess').style.display = 'block';
-}
+});
 
 // Scroll reveal
 const observer = new IntersectionObserver(entries => {

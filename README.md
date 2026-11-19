@@ -15,8 +15,9 @@ GitHub Pages serves `main` directly, with the custom domain in `CNAME` (`www.plo
 - `index.html` — the whole site: markup, CSS and the small bits of JS.
 - `founder.webp` — founder photo in the founder block.
 - `roadmap-month-dark.webp`, `task-detail-dark.webp` — product screenshots (demo data only).
+- `og-image.png` — 1200×630 Open Graph image; a plain fit of `roadmap-month-dark.webp` on the `#1c1c1a` background.
 - `favicon.ico`, `plottie-favicon-16/32/192/512.png`, `apple-touch-icon.png`, `site.webmanifest` — favicon and app icon set. Replace them as a set, don't edit one alone.
-- `robots.txt`, `CNAME` — crawler rules and the Pages domain.
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `CNAME` — crawler rules, sitemap (home only), a short AI-crawler summary, and the Pages domain.
 
 ## Design
 
