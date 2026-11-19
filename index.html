@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1c1a">
 <title>Plottie — Your roadmap has answers</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="plottie-favicon-32.png" type="image/png" sizes="32x32">
@@ -15,16 +16,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #FAFAFA;
-  --bg2:     #FFFFFF;
-  --bg3:     #F3F3F1;
-  --text:    #111110;
-  --text2:   #5C5B57;
-  --text3:   #74736C;
-  --border:  rgba(0,0,0,0.08);
-  --border2: rgba(0,0,0,0.14);
-  --border3: rgba(0,0,0,0.26);
-  --green:   #4F8A10;
+  --bg:      #1c1c1a;
+  --bg2:     #242422;
+  --bg3:     #2c2c2a;
+  --text:    #e8e6df;
+  --text2:   #b0aea6;
+  --text3:   #9c9a92;
+  --border:  #2c2c2a;
+  --border2: rgba(232,230,223,0.12);
+  --border3: rgba(232,230,223,0.22);
+  --green:   #A3C96A;
   --red:     #E24B4A;
   --radius:  8px;
   --radius-lg: 12px;
@@ -49,7 +50,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250,250,250,0.85);
+  background: rgba(28,28,26,0.85);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -103,7 +104,7 @@ nav {
   font-weight: 500;
   line-height: 1;
   background: var(--text);
-  color: #fff;
+  color: var(--bg);
   border: none;
   border-radius: var(--radius-pill);
   padding: .85rem 1.5rem;
@@ -189,7 +190,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   background: var(--bg2);
   border: 1px solid var(--border2);
   border-radius: var(--radius-lg);
-  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 16px 40px rgba(0,0,0,.06);
+  box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 16px 40px rgba(0,0,0,.35);
   overflow: hidden;
 }
 
@@ -342,8 +343,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .founder-placeholder {
-  background: #FFF3A3;
-  color: var(--text2);
+  background: #E0C15A;
+  color: #1c1c1a;
   padding: 0 .3em;
   border-radius: 3px;
 }
@@ -368,7 +369,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .price-card.featured {
   background: var(--text);
-  color: #fff;
+  color: var(--bg);
 }
 
 .price-tier {
@@ -377,7 +378,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   color: var(--text3);
   margin-bottom: .4rem;
 }
-.price-card.featured .price-tier { color: rgba(255,255,255,.6); }
+.price-card.featured .price-tier { color: rgba(28,28,26,.6); }
 
 .price-name {
   font-family: 'Instrument Serif', serif;
@@ -397,14 +398,14 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   color: var(--text3);
   margin-bottom: 1.25rem;
 }
-.price-card.featured .price-period { color: rgba(255,255,255,.6); }
+.price-card.featured .price-period { color: rgba(28,28,26,.6); }
 
 .price-alt {
   font-size: .8rem;
   color: var(--text2);
   margin: -.85rem 0 1.25rem;
 }
-.price-card.featured .price-alt { color: rgba(255,255,255,.78); }
+.price-card.featured .price-alt { color: rgba(28,28,26,.78); }
 
 .price-features {
   list-style: none;
@@ -420,7 +421,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   align-items: flex-start;
   gap: .4rem;
 }
-.price-card.featured .price-features li { color: rgba(255,255,255,.78); }
+.price-card.featured .price-features li { color: rgba(28,28,26,.78); }
 
 .price-features li::before {
   content: '—';
@@ -429,20 +430,20 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   font-size: .7rem;
   margin-top: 2px;
 }
-.price-card.featured .price-features li::before { color: rgba(255,255,255,.4); }
+.price-card.featured .price-features li::before { color: rgba(28,28,26,.4); }
 
 .price-features li.included::before {
   content: '✓';
   color: var(--green);
 }
-.price-card.featured .price-features li.included::before { color: #fff; }
+.price-card.featured .price-features li.included::before { color: var(--bg); }
 
 .price-cta {
   margin-top: auto;
   padding-top: 1.5rem;
 }
 .price-cta .btn { width: 100%; }
-.price-card.featured .btn { background: #fff; color: var(--text); }
+.price-card.featured .btn { background: var(--bg); color: var(--text); }
 
 .price-cta-text {
   font-size: .84rem;
