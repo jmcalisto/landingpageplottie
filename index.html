@@ -28,6 +28,7 @@
 }
 
 html { scroll-behavior: smooth; }
+#features, #how, #pricing, #faq, #waitlist { scroll-margin-top: 76px; }
 
 body {
   background: var(--bg);
@@ -370,7 +371,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .eu-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  max-width: 560px;
   gap: 1px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -398,11 +400,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .eu-location {
-  font-family: 'Geist Mono', monospace;
-  font-size: .68rem;
+  font-size: .75rem;
   color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .08em;
 }
 
 .eu-desc {
@@ -419,10 +418,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   border: 1px solid rgba(26,107,74,.3);
   background: rgba(26,107,74,.08);
   color: var(--eu);
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
+  font-size: .75rem;
+  font-weight: 500;
   padding: .3rem .7rem;
   border-radius: 4px;
   margin-bottom: 1.5rem;
@@ -433,7 +430,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 /* ── PRICING ── */
 .pricing-teaser {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -444,6 +441,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 .price-card {
   background: var(--bg2);
   padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .price-card.featured {
@@ -452,10 +451,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .price-tier {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  text-transform: uppercase;
-  letter-spacing: .12em;
+  font-size: .8rem;
+  font-weight: 500;
   color: var(--text3);
   margin-bottom: .4rem;
 }
@@ -475,14 +472,18 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .price-period {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
+  font-size: .8rem;
   color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .08em;
   margin-bottom: 1.25rem;
 }
 .price-card.featured .price-period { color: rgba(255,255,255,.6); }
+
+.price-alt {
+  font-size: .8rem;
+  color: var(--text2);
+  margin: -.85rem 0 1.25rem;
+}
+.price-card.featured .price-alt { color: rgba(255,255,255,.78); }
 
 .price-features {
   list-style: none;
@@ -515,33 +516,33 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 .price-card.featured .price-features li.included::before { color: #fff; }
 
-.ai-highlight {
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  border-radius: 4px;
-  padding: .3rem .5rem;
-  font-size: .74rem;
-  color: var(--text);
-  margin-bottom: .75rem;
+.price-cta {
+  margin-top: auto;
+  padding-top: 1.5rem;
 }
-.price-card.featured .ai-highlight {
-  background: rgba(255,255,255,.1);
-  border-color: rgba(255,255,255,.22);
-  color: #fff;
+.price-cta .btn { width: 100%; }
+.price-card.featured .btn { background: #fff; color: var(--text); }
+
+.price-cta-text {
+  font-size: .84rem;
+  font-weight: 500;
+  color: var(--text2);
 }
 
 .pricing-foot {
   margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .pricing-foot p {
   font-size: .84rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.pricing-foot .pricing-footnote {
+  font-size: .72rem;
   color: var(--text3);
+  margin-top: .3rem;
 }
 
 /* ── FAQ ── */
@@ -649,11 +650,8 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 .waitlist-submit { width: 100%; }
 
 .waitlist-note {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
+  font-size: .75rem;
   color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .08em;
 }
 
 .waitlist-perks {
@@ -726,11 +724,8 @@ footer {
 .footer-links a:hover { color: var(--text); }
 
 .footer-note {
-  font-family: 'Geist Mono', monospace;
-  font-size: .62rem;
+  font-size: .75rem;
   color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .08em;
 }
 
 /* ── DIVIDER ── */
@@ -760,9 +755,8 @@ footer {
   .how-grid { grid-template-columns: 1fr 1fr; }
   .how-step { border-bottom: 1px solid var(--border); }
   .testimonial-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .pricing-teaser { grid-template-columns: 1fr 1fr; }
+  .pricing-teaser { grid-template-columns: 1fr; }
   .waitlist-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .eu-grid { grid-template-columns: 1fr; }
   section { padding: 3.5rem 1.25rem; }
   .testimonial-inner, .eu-inner, .waitlist-inner { padding: 3.5rem 1.25rem; }
   footer { padding: 2rem 1.25rem; }
@@ -778,8 +772,6 @@ footer {
   .features-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
   .how-step { border-right: none; }
-  .pricing-teaser { grid-template-columns: 1fr; }
-  .pricing-foot { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -803,10 +795,10 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <h1 class="fade-up">Your whole company on one roadmap.<br><em>One price, not per seat.</em></h1>
-  <p class="hero-sub fade-up d1">A simple Gantt for every team, and an AI your leaders can ask "what's slipping?". From €99 a month for the whole team, with data that never leaves Europe.</p>
+  <p class="hero-sub fade-up d1">A simple Gantt for every team, and an AI your leaders can ask “what’s slipping?”. From €149 a month for the whole team (€119 billed yearly), with your data hosted in Europe.</p>
   <div class="hero-actions fade-up d2">
     <a href="#waitlist" class="btn">Join the beta</a>
-    <p class="hero-note">Free for up to 5 people. No card.</p>
+    <p class="hero-note">Self-hosted is free. Cloud has a 30-day trial, no card required.</p>
   </div>
 </div>
 
@@ -826,7 +818,7 @@ footer {
     </div>
     <div class="feature-card">
       <div class="feature-title">Conversational AI</div>
-      <div class="feature-desc">Ask your roadmap anything in plain English. "What's at risk this quarter?" gets an instant answer — not a Jira query. Powered by Mistral on EU infrastructure.</div>
+      <div class="feature-desc">Ask your roadmap anything in plain English. "What's at risk this quarter?" gets an instant answer — not a Jira query. Bring your own AI through a connector (ChatGPT, Claude, and so on).</div>
     </div>
     <div class="feature-card">
       <div class="feature-title">Monday digest</div>
@@ -871,7 +863,7 @@ footer {
     <div class="how-step">
       <div class="how-number">04</div>
       <div class="how-title">Let leadership ask</div>
-      <div class="how-desc">Ask questions across the whole organisation in plain English. The AI aggregates across every level and answers instantly. Status meetings optional.</div>
+      <div class="how-desc">Connect your own AI and ask questions across the whole organisation in plain English. Answers draw on every level of the hierarchy. Status meetings optional.</div>
     </div>
   </div>
 </section>
@@ -906,7 +898,7 @@ footer {
       </div>
       <div class="stat-card">
         <div class="stat-number">EU</div>
-        <div class="stat-label">100% European infrastructure stack</div>
+        <div class="stat-label">Data hosted in the EU (Hetzner, Nuremberg)</div>
       </div>
     </div>
   </div>
@@ -916,20 +908,14 @@ footer {
 <div class="eu-section">
   <div class="eu-inner">
     <div class="eu-badge">EU-native infrastructure</div>
-    <h2 class="section-title">Built in Europe.<br>Stays in Europe.</h2>
-    <p class="section-sub">Plottie is a European company running on European infrastructure, end to end. Your data lives under EU jurisdiction from the moment you sign up. We sign a data protection agreement on day one of any paid plan.</p>
+    <h2 class="section-title">Built in Europe.<br>Hosted in Europe.</h2>
+    <p class="section-sub">Plottie is a European company. Your data is hosted by Hetzner in Nuremberg, Germany, under EU jurisdiction from the moment you sign up. AI is bring-your-own through a connector (ChatGPT, Claude, and so on), so it is not part of this stack. Enterprise plans include a data protection agreement.</p>
     <div class="eu-grid">
       <div class="eu-card">
         <div class="eu-flag">🇩🇪</div>
         <div class="eu-provider">Hetzner</div>
         <div class="eu-location">Nuremberg, Germany — Data & hosting</div>
         <div class="eu-desc">Your data sits in a German data centre, operated by a German company under German law. That's the whole stack — application, database, backups.</div>
-      </div>
-      <div class="eu-card">
-        <div class="eu-flag">🇫🇷</div>
-        <div class="eu-provider">Mistral AI</div>
-        <div class="eu-location">Paris, France — AI</div>
-        <div class="eu-desc">The AI that answers your questions is built and hosted in France. Your data isn't stored after the query and never trains a model.</div>
       </div>
     </div>
   </div>
@@ -938,77 +924,65 @@ footer {
 <!-- PRICING -->
 <section id="pricing">
   <p class="section-kicker">Launch pricing</p>
-  <h2 class="section-title">Simple, honest tiers.<br>No per-seat surprises.</h2>
-  <p class="section-sub">Flat monthly price. Not per user, not per seat, not per team. Your whole company at every level, one price. Annual plans save 20%.</p>
+  <h2 class="section-title">One flat price.<br>Not per user, not per seat.</h2>
+  <p class="section-sub">One monthly price for your whole company, at every level. Not per user, not per seat, not per team. Yearly billing saves 20%.</p>
 
   <div class="pricing-teaser">
-    <!-- Seed -->
+    <!-- Self-hosted -->
     <div class="price-card">
-      <div class="price-tier">Free forever</div>
-      <div class="price-name">Seed</div>
-      <div class="price-amount">€0</div>
-      <div class="price-period">No credit card</div>
+      <div class="price-tier">Open source</div>
+      <div class="price-name">Self-hosted</div>
+      <div class="price-amount">Free</div>
+      <div class="price-period">€0 · AGPL licence</div>
       <ul class="price-features">
-        <li class="included">Up to 5 users</li>
-        <li class="included">2 active projects</li>
-        <li class="included">Full Gantt</li>
-        <li class="included">EU data residency</li>
+        <li class="included">Open source under AGPL</li>
+        <li class="included">Run it on your own infrastructure</li>
       </ul>
+      <div class="price-cta">
+        <!-- TODO(juan): self-hosted repo URL -->
+        <p class="price-cta-text">View the repo</p>
+      </div>
     </div>
-    <!-- Team -->
-    <div class="price-card">
-      <div class="price-tier">For growing teams</div>
-      <div class="price-name">Team</div>
-      <div class="price-amount">€99</div>
-      <div class="ai-highlight">25 AI queries / month — upgrade for unlimited</div>
-      <ul class="price-features">
-        <li class="included">Up to 25 users</li>
-        <li class="included">Unlimited projects</li>
-        <li class="included">CSV export</li>
-        <li class="included">Audit trail</li>
-        <li class="included">M365 / Google SSO</li>
-        <li class="included">Read-only share link</li>
-        <li class="included">25 AI queries / mo</li>
-        <li>Unlimited AI</li>
-      </ul>
-    </div>
-    <!-- Clarity — featured -->
+    <!-- Plottie Cloud — featured -->
     <div class="price-card featured">
-      <div class="price-tier">Most popular</div>
-      <div class="price-name">Clarity</div>
-      <div class="price-amount">€299</div>
-      <div class="ai-highlight">Unlimited AI · Full hierarchy · Monday digest</div>
+      <div class="price-tier">Hosted by us</div>
+      <div class="price-name">Plottie Cloud</div>
+      <div class="price-amount">€149</div>
+      <div class="price-period">per month</div>
+      <div class="price-alt">or €119/month billed yearly (20% off)</div>
       <ul class="price-features">
-        <li class="included">Unlimited users</li>
-        <li class="included">Everything in Team</li>
-        <li class="included">Unlimited AI queries</li>
-        <li class="included">Full organisational hierarchy</li>
-        <li class="included">Cross-team AI queries</li>
+        <li class="included">Unlimited people and projects</li>
+        <li class="included">Every feature, including the full hierarchy roll-up</li>
         <li class="included">Monday digest email</li>
         <li class="included">Teams + Slack bot</li>
+        <li class="included">Bring your own AI through a connector (ChatGPT, Claude, and so on)</li>
+        <li class="included">30-day free trial, no card required</li>
       </ul>
+      <div class="price-cta">
+        <a href="#waitlist" class="btn">Join the beta</a>
+      </div>
     </div>
-    <!-- Control -->
+    <!-- Enterprise -->
     <div class="price-card">
-      <div class="price-tier">Regulated industries</div>
-      <div class="price-name">Control</div>
-      <div class="price-amount">€799</div>
-      <div class="ai-highlight">Dedicated Hetzner VPS · Custom branding · DPA day one</div>
+      <div class="price-tier">Custom terms</div>
+      <div class="price-name">Enterprise</div>
+      <div class="price-amount">Talk to us</div>
+      <div class="price-period">Priced for your organisation</div>
       <ul class="price-features">
-        <li class="included">Unlimited users</li>
-        <li class="included">Everything in Clarity</li>
-        <li class="included">Dedicated server (DE)</li>
-        <li class="included">Custom branding + domain</li>
-        <li class="included">AI runs on your own server</li>
-        <li class="included">DPA + SLA 99.9%</li>
+        <li class="included">Data protection agreement (DPA)</li>
         <li class="included">Invoice billing</li>
+        <li class="included">Help with hosting</li>
       </ul>
+      <div class="price-cta">
+        <!-- TODO(juan): Talk to us address -->
+        <p class="price-cta-text">Talk to us</p>
+      </div>
     </div>
   </div>
 
   <div class="pricing-foot">
-    <p>All plans include a 14-day reverse trial of Clarity features — no card required.</p>
-    <a href="pricing.html" class="btn">Join the beta</a>
+    <p>25 people on monday.com Pro: €475/month billed yearly (€19 per seat). Plottie Cloud: €119/month billed yearly, any team size.</p>
+    <p class="pricing-footnote">monday.com prices checked 19 Nov 2026.</p>
   </div>
 </section>
 
@@ -1019,19 +993,19 @@ footer {
   <div class="faq-list">
     <div class="faq-item open">
       <div class="faq-q">How is this different from Asana or Monday? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Plottie is built for one job: keeping leadership and teams aligned on the plan without status meetings. Asana and Monday started as task trackers and grew outward from there — Plottie started from the roadmap and works down to the task. Different starting points, different shape of product. The tools are designed to coexist, and Plottie also runs entirely on EU infrastructure, which matters for regulated-industry buyers who can't put roadmap data on US-owned platforms.</div>
+      <div class="faq-a">Plottie is built for one job: keeping leadership and teams aligned on the plan without status meetings. Asana and Monday started as task trackers and grew outward from there — Plottie started from the roadmap and works down to the task. Different starting points, different shape of product. The tools are designed to coexist, and Plottie's data and hosting live in the EU (Hetzner, Nuremberg), which matters for regulated-industry buyers who can't put roadmap data on US-owned platforms.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What counts as an AI query? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Any question you ask your roadmap in plain English — "what's at risk this quarter?", "what is Alice working on?", "summarise last month". Each question is one query. The 25 monthly queries on Team tier are shared across your whole organisation and reset on your billing date. Clarity and Control have unlimited queries.</div>
+      <div class="faq-q">Do you charge per AI query? <span class="faq-arrow">↓</span></div>
+      <div class="faq-a">No. AI in Plottie is bring-your-own through a connector (ChatGPT, Claude, and so on). We don't sell metered built-in queries.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What do you mean by organisational hierarchy? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Plottie mirrors how real organisations work — Organisation → Division → Department → Team → Programme → Project. Each level has its own roadmap and rolls up into the one above. A CLO can see the entire L&D operation in one view. A team lead sees only their area. The AI layer works across the whole hierarchy — ask "what's the status of the digital transformation programme across all regions?" and get an answer that aggregates automatically. No spreadsheet, no status meeting.</div>
+      <div class="faq-a">Plottie mirrors how real organisations work — Organisation → Division → Department → Team → Programme → Project. Each level has its own roadmap and rolls up into the one above. A CLO can see the entire L&D operation in one view. A team lead sees only their area. Connect your own AI and you can ask across the whole hierarchy — "what's the status of the digital transformation programme across all regions?" — and get an answer that aggregates automatically. No spreadsheet, no status meeting.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Does the AI see my roadmap data? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Yes, but only your tenant's data. When you ask a question, your server fetches your data and sends it to Mistral's EU infrastructure for processing. Mistral does not retain or train on API query content. On the Control plan, the AI model runs on your own dedicated server — nothing leaves your VPS.</div>
+      <div class="faq-a">Only through the AI you connect. Plottie has no built-in model: you bring your own through a connector (ChatGPT, Claude, and so on), and that provider's own data terms apply. <!-- TODO(juan): confirm what the connector sends to the provider and whether to link each provider's data policy --></div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I migrate from an existing tool? <span class="faq-arrow">↓</span></div>
@@ -1039,7 +1013,7 @@ footer {
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you support invoice billing for procurement? <span class="faq-arrow">↓</span></div>
-      <div class="faq-a">Yes, on the Control plan. We issue quarterly or annual invoices in EUR with a DPA included as standard. If your procurement process requires a vendor security questionnaire, get in touch before signing.</div>
+      <div class="faq-a">Yes, on the Enterprise plan. We issue quarterly or annual invoices in EUR with a DPA included as standard. If your procurement process requires a vendor security questionnaire, get in touch before signing.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">What happens to my data if I cancel? <span class="faq-arrow">↓</span></div>
