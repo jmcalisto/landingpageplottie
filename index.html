@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +10,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #1c1c1a;
-  --bg2:     #242422;
-  --bg3:     #2c2c2a;
-  --bg4:     #343432;
-  --text:    #e8e6df;
-  --text2:   #9c9a92;
-  --text3:   #6b6a65;
-  --border:  rgba(255,255,255,0.08);
-  --border2: rgba(255,255,255,0.14);
-  --border3: rgba(255,255,255,0.22);
-  --blue:    #378ADD;
-  --green:   #639922;
+  --bg:      #FAFAFA;
+  --bg2:     #FFFFFF;
+  --bg3:     #F3F3F1;
+  --text:    #111110;
+  --text2:   #5C5B57;
+  --text3:   #74736C;
+  --border:  rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --border3: rgba(0,0,0,0.26);
+  --green:   #4F8A10;
   --red:     #E24B4A;
-  --amber:   #EF9F27;
-  --muted:   #D3D1C7;
   --eu:      #1a6b4a;
   --radius:  8px;
   --radius-lg: 12px;
+  --radius-pill: 999px;
 }
 
 html { scroll-behavior: smooth; }
@@ -39,35 +36,35 @@ body {
   font-size: 14px;
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
-
-/* ── TYPOGRAPHY ── */
-.serif { font-family: 'Instrument Serif', Georgia, serif; }
-.mono  { font-family: 'Geist Mono', 'Courier New', monospace; }
 
 /* ── NAV ── */
 nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(28,28,26,0.9);
+  background: rgba(250,250,250,0.85);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid var(--border);
+  border-bottom: 1px solid var(--border);
   padding: 0 2rem;
-  height: 52px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .nav-logo {
   font-family: 'Instrument Serif', serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--text);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
 .nav-logo-dot {
@@ -79,76 +76,75 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .nav-links a {
-  font-family: 'Geist Mono', monospace;
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
+  font-size: .85rem;
   color: var(--text2);
   text-decoration: none;
   transition: color .15s;
 }
 .nav-links a:hover { color: var(--text); }
 
-.nav-cta {
-  font-family: 'Geist Mono', monospace;
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
+/* ── BUTTON (single style used for every CTA) ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  font-family: inherit;
+  font-size: .88rem;
+  font-weight: 500;
+  line-height: 1;
   background: var(--text);
-  color: var(--bg);
+  color: #fff;
   border: none;
-  padding: .45rem 1rem;
-  border-radius: var(--radius);
-  cursor: pointer;
+  border-radius: var(--radius-pill);
+  padding: .85rem 1.5rem;
   text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
   transition: opacity .15s;
 }
-.nav-cta:hover { opacity: .85; }
+.btn::after {
+  content: '→';
+  font-size: .95em;
+  transition: transform .15s;
+}
+.btn:hover { opacity: .8; }
+.btn:hover::after { transform: translateX(2px); }
+.btn:disabled { opacity: .6; cursor: default; }
+
+.nav-cta {
+  font-size: .8rem;
+  padding: .6rem 1.1rem;
+  flex-shrink: 0;
+}
 
 /* ── SECTIONS ── */
 section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-.section-full { max-width: 100%; padding: 5rem 0; }
 
 /* ── HERO ── */
 .hero {
-  padding: 7rem 2rem 5rem;
-  max-width: 1100px;
+  padding: 7rem 2rem 5.5rem;
+  max-width: 860px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.hero-eyebrow {
-  font-family: 'Geist Mono', monospace;
-  font-size: .68rem;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--text3);
-  margin-bottom: 1.25rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: .5rem;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 16px; height: 1px;
-  background: var(--text3);
+  text-align: center;
 }
 
 .hero h1 {
   font-family: 'Instrument Serif', serif;
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  line-height: 1.08;
-  letter-spacing: -.01em;
-  margin-bottom: 1.25rem;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.2vw, 4.6rem);
+  line-height: 1.04;
+  letter-spacing: -.015em;
+  margin-bottom: 1.5rem;
   color: var(--text);
+  text-wrap: balance;
 }
 
 .hero h1 em {
@@ -157,337 +153,38 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .hero-sub {
-  font-size: .9rem;
+  font-size: 1.1rem;
   color: var(--text2);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 440px;
+  line-height: 1.6;
+  margin: 0 auto 2.25rem;
+  max-width: 580px;
+  text-wrap: pretty;
 }
 
 .hero-actions {
   display: flex;
-  gap: .75rem;
-  flex-wrap: wrap;
-}
-
-.btn-primary {
-  font-family: 'Geist Mono', monospace;
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  padding: .7rem 1.5rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity .15s;
-  display: inline-block;
-}
-.btn-primary:hover { opacity: .85; }
-
-.btn-ghost {
-  font-family: 'Geist Mono', monospace;
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  background: transparent;
-  color: var(--text2);
-  border: 0.5px solid var(--border2);
-  padding: .7rem 1.5rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  text-decoration: none;
-  transition: all .15s;
-  display: inline-block;
-}
-.btn-ghost:hover { border-color: var(--border3); color: var(--text); }
-
-/* ── GANTT DEMO ── */
-.gantt-demo {
-  background: var(--bg2);
-  border: 0.5px solid var(--border2);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  font-size: 11px;
-}
-
-.gantt-header {
-  background: var(--bg3);
-  border-bottom: 0.5px solid var(--border);
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.gantt-title {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-.gantt-year {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  color: var(--text3);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.gantt-months {
-  display: grid;
-  grid-template-columns: 110px repeat(12, 1fr);
-  border-bottom: 0.5px solid var(--border);
-}
-
-.gantt-months .lbl {
-  padding: 6px 10px;
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  background: var(--bg2);
-  border-right: 0.5px solid var(--border);
-}
-
-.gantt-months .m {
-  padding: 6px 2px;
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  text-align: center;
-  border-right: 0.5px solid var(--border);
-}
-.gantt-months .m:last-child { border-right: none; }
-.gantt-months .m.today { color: var(--red); }
-
-.gantt-row {
-  display: grid;
-  grid-template-columns: 110px repeat(12, 1fr);
-  border-bottom: 0.5px solid var(--border);
-  min-height: 36px;
-  align-items: center;
-}
-.gantt-row:last-child { border-bottom: none; }
-
-.gantt-row.section {
-  background: var(--bg3);
-  min-height: 28px;
-}
-
-.gantt-row .task-name {
-  padding: 4px 10px;
-  font-size: .75rem;
-  font-weight: 500;
-  color: var(--text);
-  border-right: 0.5px solid var(--border);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.gantt-row.section .task-name {
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  color: var(--text3);
-}
-
-.gantt-row .cell {
-  border-right: 0.5px solid var(--border);
-  padding: 4px 2px;
-  position: relative;
-}
-.gantt-row .cell:last-child { border-right: none; }
-.gantt-row .cell.today::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--red);
-  opacity: .4;
-  transform: translateX(-50%);
-}
-
-.bar {
-  height: 22px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  padding: 0 6px;
-  font-size: .65rem;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* spans across multiple cells */
-.gantt-row .span-2 { grid-column: span 2; }
-.gantt-row .span-3 { grid-column: span 3; }
-.gantt-row .span-4 { grid-column: span 4; }
-.gantt-row .span-5 { grid-column: span 5; }
-
-/* ── AI CHAT DEMO ── */
-.chat-demo {
-  background: var(--bg2);
-  border: 0.5px solid var(--border2);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  max-width: 480px;
-}
-
-.chat-header {
-  background: var(--bg3);
-  border-bottom: 0.5px solid var(--border);
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.chat-header-dot {
-  width: 7px; height: 7px;
-  background: var(--eu);
-  border-radius: 50%;
-}
-
-.chat-header-label {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-.chat-messages {
-  padding: 16px;
-  display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: .9rem;
 }
 
-.chat-msg {
-  max-width: 85%;
+.hero-note {
+  font-size: .82rem;
+  color: var(--text3);
 }
 
-.chat-msg.user {
-  align-self: flex-end;
-}
-
-.chat-bubble {
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: .8rem;
-  line-height: 1.5;
-}
-
-.chat-msg.user .chat-bubble {
-  background: var(--bg4);
-  color: var(--text);
-  border-radius: 10px 10px 2px 10px;
-  font-family: 'Geist Mono', monospace;
-  font-size: .72rem;
-}
-
-.chat-msg.ai .chat-bubble {
-  background: var(--bg3);
-  color: var(--text);
-  border-radius: 10px 10px 10px 2px;
-  border: 0.5px solid var(--border2);
-}
-
-.chat-msg.ai .chat-bubble .risk {
-  color: var(--red);
+/* ── SECTION HEADINGS ── */
+.section-kicker {
+  font-size: .85rem;
   font-weight: 500;
-}
-
-.chat-msg.ai .chat-bubble .ok {
-  color: var(--green);
-}
-
-.chat-msg.ai .chat-bubble .warn {
-  color: var(--amber);
-}
-
-.chat-attribution {
-  font-family: 'Geist Mono', monospace;
-  font-size: .6rem;
   color: var(--text3);
-  margin-top: 4px;
-  padding-left: 2px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.chat-attribution::before {
-  content: '🤖';
-  font-size: .65rem;
-}
-
-.chat-input-row {
-  border-top: 0.5px solid var(--border);
-  padding: 10px 14px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.chat-input {
-  flex: 1;
-  background: var(--bg3);
-  border: 0.5px solid var(--border2);
-  border-radius: 6px;
-  padding: 7px 10px;
-  font-size: .75rem;
-  color: var(--text2);
-  font-family: 'Geist Mono', monospace;
-}
-
-.chat-send {
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  width: 28px; height: 28px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: .8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ── SECTION LABELS ── */
-.section-label {
-  font-family: 'Geist Mono', monospace;
-  font-size: .68rem;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: var(--text3);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-.section-label::before {
-  content: '';
-  display: inline-block;
-  width: 12px; height: 1px;
-  background: var(--text3);
+  margin-bottom: .75rem;
 }
 
 .section-title {
   font-family: 'Instrument Serif', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
   line-height: 1.1;
   letter-spacing: -.01em;
   margin-bottom: 1rem;
@@ -495,10 +192,10 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .section-sub {
-  font-size: .88rem;
+  font-size: .92rem;
   color: var(--text2);
   line-height: 1.7;
-  max-width: 520px;
+  max-width: 540px;
   margin-bottom: 3rem;
 }
 
@@ -507,7 +204,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--border);
@@ -520,27 +217,15 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 .feature-card:hover { background: var(--bg3); }
 
-.feature-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  border: 0.5px solid var(--border2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  background: var(--bg3);
-}
-
 .feature-title {
-  font-size: .88rem;
+  font-size: .95rem;
   font-weight: 500;
   color: var(--text);
-  margin-bottom: .4rem;
+  margin-bottom: .45rem;
 }
 
 .feature-desc {
-  font-size: .8rem;
+  font-size: .84rem;
   color: var(--text2);
   line-height: 1.6;
 }
@@ -550,14 +235,15 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--bg2);
 }
 
 .how-step {
   padding: 2rem 1.5rem;
-  border-right: 0.5px solid var(--border);
+  border-right: 1px solid var(--border);
   position: relative;
 }
 .how-step:last-child { border-right: none; }
@@ -571,34 +257,23 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .how-title {
-  font-size: .85rem;
+  font-size: .92rem;
   font-weight: 500;
   color: var(--text);
   margin-bottom: .4rem;
 }
 
 .how-desc {
-  font-size: .78rem;
+  font-size: .82rem;
   color: var(--text2);
   line-height: 1.6;
 }
 
-.how-arrow {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%);
-  font-size: .7rem;
-  color: var(--text3);
-  z-index: 2;
-}
-.how-step:last-child .how-arrow { display: none; }
-
 /* ── TESTIMONIAL ── */
 .testimonial-section {
   background: var(--bg2);
-  border-top: 0.5px solid var(--border);
-  border-bottom: 0.5px solid var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .testimonial-inner {
@@ -633,22 +308,23 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 .testimonial-avatar {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--bg4);
-  border: 0.5px solid var(--border2);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: .8rem;
+  color: var(--text2);
 }
 
 .testimonial-name {
-  font-size: .82rem;
+  font-size: .85rem;
   font-weight: 500;
   color: var(--text);
 }
 
 .testimonial-role {
-  font-size: .75rem;
+  font-size: .78rem;
   color: var(--text3);
 }
 
@@ -656,14 +332,14 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--border);
 }
 
 .stat-card {
-  background: var(--bg3);
+  background: var(--bg);
   padding: 1.5rem;
 }
 
@@ -676,29 +352,27 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .stat-label {
-  font-size: .75rem;
+  font-size: .78rem;
   color: var(--text3);
   line-height: 1.4;
 }
 
 /* ── EU SECTION ── */
 .eu-section {
-  background: var(--bg2);
-  border-top: 0.5px solid var(--border);
-  border-bottom: 0.5px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .eu-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .eu-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--border);
@@ -706,7 +380,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .eu-card {
-  background: var(--bg3);
+  background: var(--bg2);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -718,7 +392,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .eu-provider {
-  font-size: .85rem;
+  font-size: .92rem;
   font-weight: 500;
   color: var(--text);
 }
@@ -732,7 +406,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .eu-desc {
-  font-size: .78rem;
+  font-size: .82rem;
   color: var(--text2);
   line-height: 1.5;
   margin-top: .25rem;
@@ -742,9 +416,9 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 0.5px solid rgba(26,107,74,.4);
-  background: rgba(26,107,74,.1);
-  color: #5db88a;
+  border: 1px solid rgba(26,107,74,.3);
+  background: rgba(26,107,74,.08);
+  color: var(--eu);
   font-family: 'Geist Mono', monospace;
   font-size: .65rem;
   text-transform: uppercase;
@@ -756,12 +430,12 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 .eu-badge::before { content: '✓'; }
 
-/* ── PRICING TEASER ── */
+/* ── PRICING ── */
 .pricing-teaser {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--border);
@@ -774,7 +448,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .price-card.featured {
   background: var(--text);
-  color: var(--bg);
+  color: #fff;
 }
 
 .price-tier {
@@ -785,7 +459,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   color: var(--text3);
   margin-bottom: .4rem;
 }
-.price-card.featured .price-tier { color: rgba(28,28,26,.5); }
+.price-card.featured .price-tier { color: rgba(255,255,255,.6); }
 
 .price-name {
   font-family: 'Instrument Serif', serif;
@@ -808,7 +482,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   letter-spacing: .08em;
   margin-bottom: 1.25rem;
 }
-.price-card.featured .price-period { color: rgba(28,28,26,.5); }
+.price-card.featured .price-period { color: rgba(255,255,255,.6); }
 
 .price-features {
   list-style: none;
@@ -818,13 +492,13 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .price-features li {
-  font-size: .78rem;
+  font-size: .8rem;
   color: var(--text2);
   display: flex;
   align-items: flex-start;
   gap: .4rem;
 }
-.price-card.featured .price-features li { color: rgba(28,28,26,.7); }
+.price-card.featured .price-features li { color: rgba(255,255,255,.78); }
 
 .price-features li::before {
   content: '—';
@@ -833,38 +507,53 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   font-size: .7rem;
   margin-top: 2px;
 }
-.price-card.featured .price-features li::before { color: rgba(28,28,26,.35); }
+.price-card.featured .price-features li::before { color: rgba(255,255,255,.4); }
 
 .price-features li.included::before {
   content: '✓';
   color: var(--green);
 }
-.price-card.featured .price-features li.included::before { color: var(--bg); }
+.price-card.featured .price-features li.included::before { color: #fff; }
 
 .ai-highlight {
-  background: rgba(232,230,223,.06);
-  border: 0.5px solid rgba(232,230,223,.18);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
   border-radius: 4px;
   padding: .3rem .5rem;
-  font-size: .72rem;
+  font-size: .74rem;
   color: var(--text);
   margin-bottom: .75rem;
 }
 .price-card.featured .ai-highlight {
-  background: rgba(28,28,26,.12);
-  border-color: rgba(28,28,26,.2);
-  color: var(--bg);
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.22);
+  color: #fff;
+}
+
+.pricing-foot {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pricing-foot p {
+  font-size: .84rem;
+  color: var(--text3);
 }
 
 /* ── FAQ ── */
 .faq-list {
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--bg2);
 }
 
 .faq-item {
-  border-bottom: 0.5px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .faq-item:last-child { border-bottom: none; }
 
@@ -874,14 +563,14 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-size: .88rem;
+  font-size: .92rem;
   font-weight: 500;
   color: var(--text);
   user-select: none;
   transition: background .15s;
   gap: 1rem;
 }
-.faq-q:hover { background: var(--bg2); }
+.faq-q:hover { background: var(--bg3); }
 
 .faq-arrow {
   font-size: .75rem;
@@ -895,7 +584,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   max-height: 0;
   overflow: hidden;
   transition: max-height .3s ease, padding .3s ease;
-  font-size: .82rem;
+  font-size: .86rem;
   color: var(--text2);
   line-height: 1.7;
 }
@@ -907,7 +596,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 /* ── WAITLIST ── */
 .waitlist-section {
   background: var(--bg2);
-  border-top: 0.5px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 .waitlist-inner {
@@ -922,13 +611,14 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 
 .waitlist-title {
   font-family: 'Instrument Serif', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
   line-height: 1.1;
   margin-bottom: 1rem;
 }
 
 .waitlist-sub {
-  font-size: .88rem;
+  font-size: .92rem;
   color: var(--text2);
   line-height: 1.7;
 }
@@ -940,11 +630,11 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 
 .waitlist-input {
-  background: var(--bg3);
-  border: 0.5px solid var(--border2);
+  background: var(--bg);
+  border: 1px solid var(--border2);
   border-radius: var(--radius);
-  padding: .75rem 1rem;
-  font-size: .85rem;
+  padding: .8rem 1rem;
+  font-size: .9rem;
   color: var(--text);
   font-family: inherit;
   width: 100%;
@@ -952,32 +642,11 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 }
 .waitlist-input:focus {
   outline: none;
-  border-color: var(--border3);
+  border-color: var(--text);
 }
 .waitlist-input::placeholder { color: var(--text3); }
 
-.waitlist-row {
-  display: flex;
-  gap: .5rem;
-}
-
-.waitlist-row .waitlist-input { flex: 1; }
-
-.waitlist-submit {
-  font-family: 'Geist Mono', monospace;
-  font-size: .72rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  padding: .75rem 1.25rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: opacity .15s;
-}
-.waitlist-submit:hover { opacity: .85; }
+.waitlist-submit { width: 100%; }
 
 .waitlist-note {
   font-family: 'Geist Mono', monospace;
@@ -998,7 +667,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   display: flex;
   align-items: flex-start;
   gap: .6rem;
-  font-size: .82rem;
+  font-size: .86rem;
   color: var(--text2);
 }
 
@@ -1011,9 +680,21 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   margin-top: 2px;
 }
 
+/* ── SUCCESS STATE ── */
+.waitlist-success {
+  display: none;
+  background: rgba(26,107,74,.08);
+  border: 1px solid rgba(26,107,74,.3);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: .88rem;
+  color: var(--eu);
+  line-height: 1.5;
+}
+
 /* ── FOOTER ── */
 footer {
-  border-top: 0.5px solid var(--border);
+  border-top: 1px solid var(--border);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -1026,25 +707,23 @@ footer {
 
 .footer-logo {
   font-family: 'Instrument Serif', serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text2);
 }
 
 .footer-links {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
-  font-family: 'Geist Mono', monospace;
-  font-size: .65rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
+  font-size: .82rem;
   color: var(--text3);
   text-decoration: none;
   transition: color .15s;
 }
-.footer-links a:hover { color: var(--text2); }
+.footer-links a:hover { color: var(--text); }
 
 .footer-note {
   font-family: 'Geist Mono', monospace;
@@ -1054,29 +733,10 @@ footer {
   letter-spacing: .08em;
 }
 
-/* ── STATUS PILLS ── */
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-family: 'Geist Mono', monospace;
-  font-size: .62rem;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  padding: .2rem .5rem;
-  border-radius: 3px;
-  font-weight: 500;
-}
-.pill.blue  { background: rgba(55,138,221,.15);  color: var(--blue);  }
-.pill.green { background: rgba(99,153,34,.15);   color: var(--green); }
-.pill.red   { background: rgba(226,75,74,.15);   color: var(--red);   }
-.pill.amber { background: rgba(239,159,39,.15);  color: var(--amber); }
-.pill.muted { background: rgba(211,209,199,.1);  color: var(--muted); }
-
 /* ── DIVIDER ── */
 .divider {
   border: none;
-  border-top: 0.5px solid var(--border);
+  border-top: 1px solid var(--border);
   margin: 0;
 }
 
@@ -1092,41 +752,34 @@ footer {
 }
 .fade-up.d1 { animation-delay: .1s; }
 .fade-up.d2 { animation-delay: .2s; }
-.fade-up.d3 { animation-delay: .3s; }
-.fade-up.d4 { animation-delay: .4s; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.25rem; }
+  .hero { padding: 4.5rem 1.25rem 3.5rem; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .how-grid { grid-template-columns: 1fr 1fr; }
-  .how-step { border-bottom: 0.5px solid var(--border); }
+  .how-step { border-bottom: 1px solid var(--border); }
   .testimonial-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .pricing-teaser { grid-template-columns: 1fr 1fr; }
   .waitlist-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .eu-grid { grid-template-columns: 1fr; }
   section { padding: 3.5rem 1.25rem; }
+  .testimonial-inner, .eu-inner, .waitlist-inner { padding: 3.5rem 1.25rem; }
+  footer { padding: 2rem 1.25rem; }
 }
 
 @media (max-width: 540px) {
-  nav { padding: 0 1.25rem; }
+  nav { padding: 0 1rem; height: 52px; }
   .nav-links { display: none; }
+  .nav-cta { font-size: .76rem; padding: .55rem 1rem; }
+  .hero { padding: 3.5rem 1.25rem 3rem; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-sub { font-size: 1rem; }
   .features-grid { grid-template-columns: 1fr; }
   .how-grid { grid-template-columns: 1fr; }
+  .how-step { border-right: none; }
   .pricing-teaser { grid-template-columns: 1fr; }
-  .gantt-demo { font-size: 9px; }
-}
-
-/* ── SUCCESS STATE ── */
-.waitlist-success {
-  display: none;
-  background: rgba(26,107,74,.1);
-  border: 0.5px solid rgba(26,107,74,.3);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  font-size: .85rem;
-  color: #5db88a;
-  line-height: 1.5;
+  .pricing-foot { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -1144,90 +797,16 @@ footer {
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="#waitlist" class="nav-cta">Get early access</a>
+  <a href="#waitlist" class="btn nav-cta">Join the beta</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="fade-up">
-    <p class="hero-eyebrow">Now in closed beta</p>
-    <h1>Your team plans.<br><em>Your leadership asks.</em></h1>
-    <p class="hero-sub">Stop running status meetings. Your roadmap answers leadership's questions for you — in plain English, across every team, division, and programme, instantly.</p>
-    <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Get early access</a>
-      <a href="#how" class="btn-ghost">See how it works</a>
-    </div>
-    <div style="margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap">
-      <span class="pill green">EU infrastructure</span>
-      <span class="pill muted">No per-seat pricing</span>
-      <span class="pill blue">AI powered</span>
-    </div>
-  </div>
-
-  <!-- GANTT PREVIEW -->
-  <div class="gantt-demo fade-up d2">
-    <div class="gantt-header">
-      <span class="gantt-title">Product Roadmap · 2026</span>
-      <span class="gantt-year">◀ 2026 ▶</span>
-    </div>
-    <div class="gantt-months">
-      <div class="lbl">Task</div>
-      <div class="m">Jan</div><div class="m">Feb</div><div class="m today">Mar</div>
-      <div class="m">Apr</div><div class="m">May</div><div class="m">Jun</div>
-      <div class="m">Jul</div><div class="m">Aug</div><div class="m">Sep</div>
-      <div class="m">Oct</div><div class="m">Nov</div><div class="m">Dec</div>
-    </div>
-    <!-- Section -->
-    <div class="gantt-row section">
-      <div class="task-name">▾ Platform</div>
-      <div class="cell" style="grid-column:span 12"></div>
-    </div>
-    <!-- Row 1 -->
-    <div class="gantt-row">
-      <div class="task-name">Auth migration</div>
-      <div class="cell span-2" style="padding:4px 2px">
-        <div class="bar" style="background:#639922;color:#fff">Auth <span class="pill green" style="margin-left:auto;font-size:.55rem">Done</span></div>
-      </div>
-      <div class="cell today"></div>
-      <div class="cell span-9"></div>
-    </div>
-    <!-- Row 2 -->
-    <div class="gantt-row">
-      <div class="task-name">Multi-tenant</div>
-      <div class="cell"></div>
-      <div class="cell span-3" style="padding:4px 2px">
-        <div class="bar" style="background:#378ADD;color:#fff">Multi-tenant <span style="margin-left:auto;font-size:.55rem;opacity:.7">Alice</span></div>
-      </div>
-      <div class="cell today"></div>
-      <div class="cell span-7"></div>
-    </div>
-    <!-- Row 3 -->
-    <div class="gantt-row">
-      <div class="task-name">AI chat layer</div>
-      <div class="cell span-3"></div>
-      <div class="cell today" style="padding:4px 2px">
-        <div class="bar" style="background:#E24B4A;color:#fff;border:1.5px dashed #ff6b6b">AI layer ⚠</div>
-      </div>
-      <div class="cell span-4" style="padding:4px 2px">
-        <div class="bar" style="background:#E24B4A;color:#fff"></div>
-      </div>
-      <div class="cell span-4"></div>
-    </div>
-    <!-- Section 2 -->
-    <div class="gantt-row section">
-      <div class="task-name">▾ Growth</div>
-      <div class="cell" style="grid-column:span 12"></div>
-    </div>
-    <!-- Row 4 -->
-    <div class="gantt-row">
-      <div class="task-name">Swiss launch</div>
-      <div class="cell span-6"></div>
-      <div class="cell today"></div>
-      <div class="cell span-3" style="padding:4px 2px">
-        <div class="bar" style="background:#EF9F27;color:#412402">⬥ Launch</div>
-      </div>
-      <div class="cell span-2"></div>
-    </div>
+  <h1 class="fade-up">Your whole company on one roadmap.<br><em>One price, not per seat.</em></h1>
+  <p class="hero-sub fade-up d1">A simple Gantt for every team, and an AI your leaders can ask "what's slipping?". From €99 a month for the whole team, with data that never leaves Europe.</p>
+  <div class="hero-actions fade-up d2">
+    <a href="#waitlist" class="btn">Join the beta</a>
+    <p class="hero-note">Free for up to 5 people. No card.</p>
   </div>
 </div>
 
@@ -1235,7 +814,6 @@ footer {
 
 <!-- FEATURES -->
 <section id="features">
-  <p class="section-label">What Plottie does</p>
   <h2 class="section-title">Organised teams.<br>Informed leaders.</h2>
   <p class="section-sub">Teams stay focused on what matters. Leaders stay informed and ready — without chasing updates, sitting through status meetings, or learning another tool.</p>
 
@@ -1243,32 +821,26 @@ footer {
 
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-icon">📅</div>
       <div class="feature-title">Multi-year Gantt</div>
       <div class="feature-desc">Tasks span months or years with weekly granularity. Continuation pips mark cross-year extents. Today indicator. Overdue highlighting.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🤖</div>
       <div class="feature-title">Conversational AI</div>
       <div class="feature-desc">Ask your roadmap anything in plain English. "What's at risk this quarter?" gets an instant answer — not a Jira query. Powered by Mistral on EU infrastructure.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">📬</div>
       <div class="feature-title">Monday digest</div>
       <div class="feature-desc">Automated plain English summary emailed every Monday morning. Leadership stays informed without logging in. No chasing, no status decks.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🔒</div>
       <div class="feature-title">Privacy when you need it</div>
       <div class="feature-desc">Mark projects as private or team-wide. Sensitive programmes stay visible only to the people who need to know.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🗒️</div>
       <div class="feature-title">Track risks before they become problems</div>
       <div class="feature-desc">Attach notes, risks, and blockers to any task. Filter by type or owner. Every change is logged — who did what, when.</div>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🔗</div>
       <div class="feature-title">Teams & Slack bot</div>
       <div class="feature-desc">Ask roadmap questions directly from Teams or Slack. Leadership gets answers in the tools they already live in — no new tab required.</div>
     </div>
@@ -1277,7 +849,6 @@ footer {
 
 <!-- HOW IT WORKS -->
 <section id="how" style="padding-top:0">
-  <p class="section-label">How it works</p>
   <h2 class="section-title">Up and running<br>in minutes.</h2>
   <p class="section-sub">No onboarding call needed. No implementation project. Sign up, build your organisational structure, invite your teams.</p>
 
@@ -1286,19 +857,16 @@ footer {
       <div class="how-number">01</div>
       <div class="how-title">Create your organisation</div>
       <div class="how-desc">Sign in with Microsoft 365 or Google. Build your hierarchy — divisions, departments, teams — as deep as your organisation needs.</div>
-      <span class="how-arrow">→</span>
     </div>
     <div class="how-step">
       <div class="how-number">02</div>
       <div class="how-title">Build your roadmaps</div>
       <div class="how-desc">Each level has its own Gantt. Tasks roll up automatically. Add owners, statuses, and notes at any level of the hierarchy.</div>
-      <span class="how-arrow">→</span>
     </div>
     <div class="how-step">
       <div class="how-number">03</div>
       <div class="how-title">Invite your people</div>
       <div class="how-desc">Team members sign in with their existing work account. Each person sees the levels they belong to. Leadership sees everything.</div>
-      <span class="how-arrow">→</span>
     </div>
     <div class="how-step">
       <div class="how-number">04</div>
@@ -1312,7 +880,6 @@ footer {
 <div class="testimonial-section">
   <div class="testimonial-inner">
     <div>
-      <p class="section-label">Early feedback</p>
       <blockquote class="testimonial-quote">
         "We finally have one place where <em>everyone can see the plan</em> — and leadership can actually ask questions without needing a demo."
       </blockquote>
@@ -1349,7 +916,6 @@ footer {
 <div class="eu-section">
   <div class="eu-inner">
     <div class="eu-badge">EU-native infrastructure</div>
-    <p class="section-label">Data residency</p>
     <h2 class="section-title">Built in Europe.<br>Stays in Europe.</h2>
     <p class="section-sub">Plottie is a European company running on European infrastructure, end to end. Your data lives under EU jurisdiction from the moment you sign up. We sign a data protection agreement on day one of any paid plan.</p>
     <div class="eu-grid">
@@ -1371,7 +937,7 @@ footer {
 
 <!-- PRICING -->
 <section id="pricing">
-  <p class="section-label">Pricing</p>
+  <p class="section-kicker">Launch pricing</p>
   <h2 class="section-title">Simple, honest tiers.<br>No per-seat surprises.</h2>
   <p class="section-sub">Flat monthly price. Not per user, not per seat, not per team. Your whole company at every level, one price. Annual plans save 20%.</p>
 
@@ -1440,14 +1006,14 @@ footer {
     </div>
   </div>
 
-  <p style="margin-top:1.25rem;font-family:'Geist Mono',monospace;font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em">
-    All plans include a 14-day reverse trial of Clarity features — no card required. <a href="pricing.html" style="color:var(--text2);text-decoration:none">Full pricing details →</a>
-  </p>
+  <div class="pricing-foot">
+    <p>All plans include a 14-day reverse trial of Clarity features — no card required.</p>
+    <a href="pricing.html" class="btn">Join the beta</a>
+  </div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" style="padding-top:0">
-  <p class="section-label">Questions</p>
   <h2 class="section-title">Frequently asked.</h2>
 
   <div class="faq-list">
@@ -1486,7 +1052,6 @@ footer {
 <div class="waitlist-section" id="waitlist">
   <div class="waitlist-inner">
     <div>
-      <p class="section-label">Early access</p>
       <h2 class="waitlist-title">Get early access.<br>Shape the product.</h2>
       <p class="waitlist-sub">Plottie is in closed beta. Early access members get discounted pricing, direct access to the founding team, and influence over the roadmap.</p>
       <div class="waitlist-perks" style="margin-top:1.5rem">
@@ -1501,7 +1066,7 @@ footer {
       <div class="waitlist-form" id="waitlistForm">
         <input type="email" class="waitlist-input" id="wl-email" placeholder="Work email" autocomplete="email">
         <input type="text" class="waitlist-input" id="wl-company" placeholder="Company name">
-        <button class="waitlist-submit" onclick="submitWaitlist()">Get early access →</button>
+        <button class="btn waitlist-submit" onclick="submitWaitlist()">Join the beta</button>
         <p class="waitlist-note">EU data only.</p>
       </div>
       <div class="waitlist-success" id="waitlistSuccess">
@@ -1579,9 +1144,6 @@ document.querySelectorAll('.features-grid .feature-card, .how-step, .stat-card, 
   el.style.transition = `opacity .5s ease ${i * 0.06}s, transform .5s ease ${i * 0.06}s`;
   observer.observe(el);
 });
-
-// Typing animation in chat demo (if we add one later)
-// For now a simple animated cursor on the chat input placeholder
 </script>
 
 </body>
