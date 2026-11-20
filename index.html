@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1c1c1a">
 <title>Plottie — Your roadmap has answers</title>
-<meta name="description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat: €149 a month (€119 billed yearly).">
+<meta name="description" content="Project management, made painless. One flat price, no per-seat tiers. A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. €149 a month (€119 billed yearly).">
 <link rel="canonical" href="https://www.plottie.eu/"/>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.plottie.eu/">
 <meta property="og:title" content="Plottie — Your roadmap has answers">
-<meta property="og:description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat.">
+<meta property="og:description" content="Project management, made painless. One flat price, no per-seat tiers. A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use.">
 <meta property="og:image" content="https://www.plottie.eu/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="A Plottie monthly roadmap with tasks scheduled across the year">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Plottie — Your roadmap has answers">
-<meta name="twitter:description" content="A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use. One flat price, no per seat.">
+<meta name="twitter:description" content="Project management, made painless. One flat price, no per-seat tiers. A company-wide Gantt and one place leaders can ask what is slipping, with the AI you already use.">
 <meta name="twitter:image" content="https://www.plottie.eu/og-image.png">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="plottie-favicon-32.png" type="image/png" sizes="32x32">
@@ -167,10 +167,55 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   text-wrap: balance;
 }
 
-.hero h1 em {
-  font-style: italic;
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: 'Geist Mono', monospace;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .06em;
+  text-transform: uppercase;
   color: var(--text2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-pill);
+  padding: .4rem .85rem;
+  margin-bottom: 1.5rem;
 }
+
+.hero-chip-dot {
+  width: 7px; height: 7px;
+  background: var(--red);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.hero h1 .h1-stop {
+  display: inline-block;
+  width: .16em; height: .16em;
+  background: var(--red);
+  border-radius: .03em;
+  margin-left: .04em;
+  vertical-align: baseline;
+}
+
+.hero h1 .h1-line2 {
+  display: block;
+  margin-top: .45em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: .5em;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  color: var(--text);
+}
+
+.hero h1 .h1-hl {
+  background: linear-gradient(transparent 62%, rgba(226,75,74,.35) 62%);
+}
+
+.hero h1 .h1-line2 br { display: none; }
 
 .hero-sub {
   font-size: 1.1rem;
@@ -178,7 +223,7 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
   line-height: 1.6;
   margin: 0 auto 2.25rem;
   max-width: 580px;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .hero-actions {
@@ -737,6 +782,7 @@ footer {
   .nav-cta { font-size: .76rem; padding: .55rem 1rem; }
   .hero { padding: 3.5rem 1.25rem 3rem; }
   .hero h1 { font-size: 2.4rem; }
+  .hero h1 .h1-line2 br { display: block; }
   .hero-sub { font-size: 1rem; }
   .features-layout { grid-template-columns: 1fr; }
   .feature-shot { max-width: 100%; }
@@ -850,8 +896,9 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <h1 class="fade-up">See what’s slipping across every team.<br><em>One price, never per seat.</em></h1>
-  <p class="hero-sub fade-up d1">Every team’s plan on one roadmap your leaders can read, or just ask. €149 a month for the whole company.</p>
+  <p class="hero-chip fade-up"><span class="hero-chip-dot" aria-hidden="true"></span>Closed beta · open source soon</p>
+  <h1 class="fade-up" aria-label="Project management, made painless. One flat price. No per-seat tiers.">Project management, made painless<span class="h1-stop" aria-hidden="true"></span><span class="h1-line2">One flat price. <br><span class="h1-hl">No per-seat tiers.</span></span></h1>
+  <p class="hero-sub fade-up d1">Ask your AI what’s slipping, and it updates the plan. Self-host it, or a flat fee for the whole company.</p>
   <div class="hero-actions fade-up d2">
     <a href="#waitlist" class="btn">Join the beta</a>
     <p class="hero-note">Join the closed beta. Free for 30 days, no card.</p>
@@ -955,7 +1002,7 @@ footer {
 <!-- PRICING -->
 <section id="pricing">
   <p class="section-kicker">Launch pricing</p>
-  <h2 class="section-title">One flat price,<br>no per seat.</h2>
+  <h2 class="section-title">One flat price.<br>No per-seat tiers.</h2>
   <p class="section-sub">One monthly price for your whole company, at every level. Not per user, not per seat, not per team. Yearly billing saves 20%.</p>
 
   <div class="pricing-teaser">
