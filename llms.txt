@@ -1,6 +1,6 @@
 # Plottie
 
-> See what’s slipping across every team. One price, never per seat.
+> Project management, made painless. One flat price. No per-seat tiers.
 
 - Home: https://www.plottie.eu/
 - Contact: hello@plottie.eu
